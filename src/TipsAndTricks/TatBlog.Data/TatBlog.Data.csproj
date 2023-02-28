@@ -13,4 +13,8 @@
     <Folder Include="Seeders\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TatBlog.Core\TatBlog.Core.csproj" />
+  </ItemGroup>
+
 </Project>
