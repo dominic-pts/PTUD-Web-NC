@@ -1,0 +1,14 @@
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\bin\Release\net6.0\TatBlog.Core.deps.json
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\bin\Release\net6.0\TatBlog.Core.runtimeconfig.json
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\bin\Release\net6.0\TatBlog.Core.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\bin\Release\net6.0\TatBlog.Core.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.csproj.AssemblyReference.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.AssemblyInfoInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.AssemblyInfo.cs
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.csproj.CoreCompileInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\refint\TatBlog.Core.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\TatBlog.Core.genruntimeconfig.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Core\obj\Release\net6.0\ref\TatBlog.Core.dll
