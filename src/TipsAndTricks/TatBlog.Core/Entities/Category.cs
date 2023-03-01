@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TatBlog.Core.Contracts;
+﻿using TatBlog.Core.Contracts;
 
 namespace TatBlog.Core.Entities;
 public class Category : IEntity
@@ -13,12 +7,12 @@ public class Category : IEntity
 
     public string Name { get; set; }
 
-    public int UrlSlug { get; set; }
+    public string UrlSlug { get; set; }
 
     public string Description { get; set; } 
 
     public bool ShowOnMenu { get; set; }
 
-    public IList<Post> Posts { get; set; }
+    public IList<Post> Posts {get; set;}
 }
 
