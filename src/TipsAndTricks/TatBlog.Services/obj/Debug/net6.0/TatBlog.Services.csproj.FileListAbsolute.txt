@@ -1,17 +1,17 @@
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.AssemblyReference.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.AssemblyInfoInputs.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.AssemblyInfo.cs
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.CoreCompileInputs.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.deps.json
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.dll
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.pdb
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Core.dll
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Data.dll
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Core.pdb
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Data.pdb
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.CopyComplete
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.dll
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\refint\TatBlog.Services.dll
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.pdb
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC\src\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\ref\TatBlog.Services.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.deps.json
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Services.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Core.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Data.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Core.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\bin\Debug\net6.0\TatBlog.Data.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.AssemblyReference.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.AssemblyInfoInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.AssemblyInfo.cs
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.CoreCompileInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.csproj.CopyComplete
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\refint\TatBlog.Services.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\TatBlog.Services.pdb
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\PTUDWNC 2\TipsAndTricks\TatBlog.Services\obj\Debug\net6.0\ref\TatBlog.Services.dll

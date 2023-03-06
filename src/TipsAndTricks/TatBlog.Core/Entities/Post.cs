@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TatBlog.Core.Contracts;
 
-namespace TatBlog.Core.Entities;
-
+namespace TatBlog.Core.Entities
+{
     public class Post : IEntity
     {
         public int Id { get; set; }
@@ -39,6 +39,5 @@ namespace TatBlog.Core.Entities;
         public Author Author { get; set; }
 
         public IList<Tag> Tags { get; set; }
-        
     }
-
+}

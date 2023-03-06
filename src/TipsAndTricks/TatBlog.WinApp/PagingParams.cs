@@ -13,5 +13,5 @@ namespace TatBlog.WinApp
         public int PageNumber { get; set; } = 1;
         public string SortColumn { get; set; } = "Id";
         public string SortOrder { get; set; } = "ASC";
-}
+    }
 }

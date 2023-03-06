@@ -97,7 +97,8 @@ namespace TatBlog.Data.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<int>("UrlSlug")
+                    b.Property<string>("UrlSlug")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 

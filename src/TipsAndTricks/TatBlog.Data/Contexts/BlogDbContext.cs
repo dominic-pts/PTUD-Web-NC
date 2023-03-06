@@ -1,9 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TatBlog.Core.Entities;
 using TatBlog.Data.Mappings;
 
-namespace TatBlog.Data.Contexts;
-
+namespace TatBlog.Data.Contexts
+{
     public class BlogDbContext : DbContext
     {
         public DbSet<Author> Authors { get; set; }
@@ -11,7 +16,7 @@ namespace TatBlog.Data.Contexts;
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=PHAM-SON\MSSVSERVER;Database=Tatblog;Trusted_Connection=True;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True");
 
@@ -21,4 +26,4 @@ namespace TatBlog.Data.Contexts;
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryMap).Assembly);
         }
     }
-
+}

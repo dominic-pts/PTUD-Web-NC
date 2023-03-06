@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TatBlog.Core.Entities;
 
-
-namespace TatBlog.Data.Mappings;
-
+namespace TatBlog.Data.Mappings
+{
     public class AuthorMap : IEntityTypeConfiguration<Author>
     {
         public void Configure(EntityTypeBuilder<Author> builder)
@@ -24,15 +23,13 @@ namespace TatBlog.Data.Mappings;
                 .IsRequired();
             builder.Property(a => a.ImageUrl)
                 .HasMaxLength(500);
-            builder.Property( a => a.Email )
+            builder.Property(a => a.Email)
                 .HasMaxLength(150);
-            builder.Property( a => a.JoinedDate )
+            builder.Property(a => a.JoinedDate)
                 .HasColumnType("datetime");
             builder.Property(a => a.Notes)
                 .HasMaxLength(500);
 
         }
     }
-    
-    
-
+}
