@@ -38,10 +38,18 @@ namespace TatBlog.Services.Blogs
             CancellationToken cancellationToken = default);
 
 
-        // phần C
+        //======================phần C==========================
+
         // Lấy tag theo (Slug)
         //public Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
         //    Task<Tag> GetTagBySlugAsync(object slug);
         //}
+
+        //======================Lab 02 -B==========================
+        
+        //Task<IPagedList<TagItem>> GetPagedPostAsync(
+        //    PostQuery postQuery, 
+        //    int pageNumber,
+        //    int pageSize);
     }
 }
