@@ -110,6 +110,20 @@ namespace TatBlog.Services.Blogs
                 .ToPagedListAsync(pagingParams, cancellationToken);
         }
 
+        // phần C
+        // Lấy tag theo tên định danh (Slug)
+        //public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        //{
+        //    IQueryable<Tag> tagQuery = _context.Set<Tag>().Include(i => i.Posts);
+
+        //    if (!string.IsNullOrWhiteSpace(slug))
+        //    {
+        //        tagQuery = tagQuery.Where(x => x.UrlSlug == slug);
+        //    }
+
+        //    return await tagQuery.FirstOrDefaultAsync(cancellationToken);
+        //}
+
     }
 
 }

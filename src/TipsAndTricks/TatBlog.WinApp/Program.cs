@@ -1,4 +1,5 @@
-﻿using TatBlog.Core.Entities;
+﻿using Azure;
+using TatBlog.Core.Entities;
 using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
@@ -141,6 +142,17 @@ IBlogRepository blogRepo = new BlogRepository(context);
 //==================================================================================
 //======================== C. Bài tập thực hành ====================================
 //==================================================================================
+
+    //// Lấy danh sách từ khóa
+    //Tag tag = await blogRepo.GetTagBySlugAsync(slug);
+
+    //// Xuất ra màn hình
+    //Console.WriteLine("{0,-5}{1,-50}{2,10}", "ID", "Name", "Count");
+    //if (tag != null)
+    //{
+    //    Console.WriteLine("{0,-5}{1,-50}{2,10}", tag.Id, tag.Name, tag.Posts.Count);
+    //}
+
 
 
 //==================================================================================

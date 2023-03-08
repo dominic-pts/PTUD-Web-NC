@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\PTUDWNC 2\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
       "projectName": "TatBlog.Core",
-      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\PTUDWNC 2\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
       "packagesPath": "C:\\Users\\myloc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\PTUDWNC 2\\TipsAndTricks\\TatBlog.Core\\obj\\",
+      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\myloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
