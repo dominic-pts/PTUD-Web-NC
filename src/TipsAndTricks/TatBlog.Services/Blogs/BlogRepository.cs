@@ -110,7 +110,10 @@ namespace TatBlog.Services.Blogs
                 .ToPagedListAsync(pagingParams, cancellationToken);
         }
 
-        // phần C
+      
+
+        //=====================phần C========================
+
         // Lấy tag theo tên định danh (Slug)
         //public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
         //{
@@ -123,6 +126,22 @@ namespace TatBlog.Services.Blogs
 
         //    return await tagQuery.FirstOrDefaultAsync(cancellationToken);
         //}
+
+
+        //======================Lap 02=======================
+
+        //public async Task<IPagedList<Post>> GetPagePostsAsync(
+        //    PostQuery condition,
+        //    int pageNumber = 1,
+        //    int pageSize = 10,
+        //    CancellationToken cancellationToken = default)
+        //{
+        //    return await FilterPosts(condition).ToPagedListAsync(
+        //        pageNumber, pageSize,
+        //        nameof(Post.PostedDate), "DESC",
+        //        cancellationToken);
+        //}
+
 
     }
 
