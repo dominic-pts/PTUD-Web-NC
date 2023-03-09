@@ -46,10 +46,11 @@ namespace TatBlog.Services.Blogs
         //}
 
         //======================Lab 02 -B==========================
-        
-        //Task<IPagedList<TagItem>> GetPagedPostAsync(
-        //    PostQuery postQuery, 
-        //    int pageNumber,
-        //    int pageSize);
+
+        Task<IPagedList<Post>> GetPagedPostAsync(
+            PostQuery postQuery,
+            int pageNumber,
+            int pageSize,
+            CancellationToken cancellationToken = default);
     }
 }
