@@ -1,10 +1,5 @@
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.AssemblyReference.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfoInputs.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfo.cs
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.CoreCompileInputs.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.AssemblyReference.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfoInputs.cache
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfo.cs
-C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.CoreCompileInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Homework\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.AssemblyReference.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Homework\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Homework\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfoInputs.cache
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Homework\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.AssemblyInfo.cs
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Homework\src\TipsAndTricks\TatBlog.WinApp\obj\Debug\net6.0\TatBlog.WinApp.csproj.CoreCompileInputs.cache

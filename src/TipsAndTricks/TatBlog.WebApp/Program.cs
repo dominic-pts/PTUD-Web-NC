@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
@@ -41,4 +42,29 @@ using (var scope = app.Services.CreateScope())
     var seeder = scope.ServiceProvider.GetService<IDataSeeder>();
     seeder.Initialize();
 }
+
+
+//định nghĩa route template, route constraint cho các 
+//endpoints kết hợp với các action trong các controller.
+app.MapControllerRoute(
+    name: "posts-by-catagory",
+    pattern: "blog/catagory/{slug}",
+    defaults: new { Controller="Blog", action = "Category" });
+
+app.MapControllerRoute(
+    name: "posts-by-tag",
+    pattern: "blog/tag/{slug}",
+    defaults: new { Controller = "Blog", action = "Tag" });
+
+app.MapControllerRoute(
+    name: "single-post",
+    pattern: "blog/post/{year:int}/{month:int}/{day:int}/{slug}",
+    defaults: new { Controller = "Blog", action = "Post" });
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{Controller=Blog}/{action=Index}/{id?}");
+
+
+
 app.Run();
+
