@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\images\\image_7.jpg"
     },
     {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-error.png",
+      "PackagePath": "staticwebassets\\images\\img-error.png"
+    },
+    {
       "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\loc.png",
       "PackagePath": "staticwebassets\\images\\loc.png"
     },

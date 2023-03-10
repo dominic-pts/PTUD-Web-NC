@@ -1,37 +1,53 @@
 ﻿@model Post
 @{
      var imageUrl = string.IsNullOrWhiteSpace(Model.ImageUrl)
-       ? "/images/image_1.jpg"
+       ? "/images/img-error.png"
         : $"/{Model.ImageUrl}";
  }
 
 <article class="blog-entry mb-4">
     <div class="card">
         <div class="row g-0">
-             <div class="col-md-4">
+            <div class="col-md-4 mx-auto d-block  " style="height:50%">
                 <img src="@imageUrl"
-                     class="card-img"
+                     class="card-img "
                      alt="@Model.Title">
              </div>
              <div class="col-md-8">
                 <div class="card-body">
-                        <h5 class="card-title">
-                            @Model.Title
-                        </h5>
+                        <a
+                            asp-controller="Blog"
+                            asp-action="Post"
+                            asp-route-year="@Model.PostedDate.Year"
+                            asp-route-year=" @Model.PostedDate.Year"
+                            asp-route-month="@Model.PostedDate.Month"
+                            asp-route-day="@Model.PostedDate.Day"
+                            asp-route-slug="@Model.UrlSlug"
+                            class="text-decoration-none card-title fw-bold">
+                            @Model.Title                       
+                        </a>
 
                         <p class="card-text">
                             <small class="text-muted">
                                 Tác giả:
                             </small>
-                            <span class="text-muted">
-                                @Model.Author.FullName
-                            </span>
+                            <a asp-controller="Blog"
+                               asp-action="Author"
+                               asp-route-slug="@Model.Author.UrlSlug">
+                                    <span>
+                                        @Model.Author.FullName
+                                    </span>
+                            </a>
                             <small class="text-muted">
                                 Chủ đề:
                             </small>
-                            <span class="text-muted">
-                                @Model.Category.Name
-                            </span>
+                            <a asp-controller ="Blog"
+                               asp-action="Category"
+                               asp-route-slug="@Model.Category.UrlSlug">
+                                    <span>
+                                        @Model.Category.Name
+                                    </span>
+                            </a>
 
                         </p>
 

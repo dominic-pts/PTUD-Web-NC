@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "InY2lqgR4+xq4pAPsqWRw+EL/ERdX67J32CRVwwIe4E=",
+  "Hash": "tY+T1DQcnliqaFm1h0wHQe0lyN1tCjNiy0aUS5vDkDo=",
   "Source": "TatBlog.WebApp",
   "BasePath": "_content/TatBlog.WebApp",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\image_7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-error.png",
+      "SourceId": "TatBlog.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+      "BasePath": "_content/TatBlog.WebApp",
+      "RelativePath": "images/img-error.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\img-error.png"
     },
     {
       "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\loc.png",

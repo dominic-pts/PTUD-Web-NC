@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="https://t.vdoc.vn/data/image/2020/11/03/Toan2-200-size-32x32-znd.svg" />
     @await RenderSectionAsync("style",required:false)
 </head>
 @*Thanh tiêu đề logo,menu*@
@@ -16,12 +17,12 @@
     <div class="row">
         <div class="col-9">
             @*Phần nội dung chính*@
-            @*Lỗi ở đây nè ()*@
+            @*Lỗi ở đây  nè ()*@
             @RenderBody()
         </div>
         <div class="col-3 border-start">
             @*danh sách chuyển mục, tag cloud*@
-            @*<paertial name ="_SideBar"/>   Lỗi ở đây nè*@
+            @*<paertial name ="_SideBar"/>   Lỗi ở đây nữa nè*@
             @Html.Partial("_SideBar")
         </div>
     </div>
