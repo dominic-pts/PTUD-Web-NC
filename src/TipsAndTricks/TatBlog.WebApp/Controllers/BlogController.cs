@@ -13,8 +13,9 @@ namespace TatBlog.WebApp.Controllers
             _blogRepository = blogRepository;
         }
 
+        //public IActionResult Index()
+        //=> View();
 
-        
 
         public IActionResult About()
         => View();
@@ -34,8 +35,8 @@ namespace TatBlog.WebApp.Controllers
         public async Task<IActionResult> Index
             (
             [FromQuery(Name = "p")] int pageNumber = 1,
-            [FromQuery(Name = "s")] string keyword = null,
-            [FromQuery(Name = "ps")] int pageSize = 10
+            [FromQuery(Name = "k")] string keyword = "",
+            [FromQuery(Name = "ps")] int pageSize = 3
             )
         {
             //tạo đối tượng chứ các điều kiện truy vấn
@@ -55,6 +56,19 @@ namespace TatBlog.WebApp.Controllers
             return View(postsList);
         }
 
+        public async Task<IActionResult> Category( string slug = "")
+        {
+            if (slug == null) return NotFound();
+
+            var postQuery = new PostQuery
+            {
+                CategorySlug = slug
+            };
+
+            var posts = await _blogRepository.GetPostByQueryAsync(postQuery);
+
+            return View(posts);
+        }
 
 
     }

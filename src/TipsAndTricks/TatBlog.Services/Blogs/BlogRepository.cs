@@ -142,73 +142,23 @@ namespace TatBlog.Services.Blogs
                 cancellationToken);
         }
 
-        public async Task<IPagedList<T>> GetPagedPostsAsync<T>(
-            PostQuery postQuery,
-            IPagingParams pagingParams,
-            Func<IQueryable<Post>, IQueryable<T>> mapper)
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
         {
-            var posts = FilterPosts(postQuery);
-            var projectedPosts = mapper(posts);
-
-            return await projectedPosts.ToPagedListAsync(pagingParams);
+            return await FilterPosts(query).ToPagedListAsync(
+                                    pageNumber,
+                                    pageSize,
+                                    nameof(Post.PostedDate),
+                                    "DESC",
+                                    cancellationToken);
         }
 
+        public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> result = mapper(FilterPosts(query));
 
-        //public async Task<Post> CreateOrUpdatePostAsync(
-        //Post post, IEnumerable<string> tags,
-        //CancellationToken cancellationToken = default)
-        //{
-        //    if (post.Id > 0)
-        //    {
-        //        await _context.Entry(post).Collection(x => x.Tags).LoadAsync(cancellationToken);
-        //    }
-        //    else
-        //    {
-        //        post.Tags = new List<Tag>();
-        //    }
+            return await result.ToPagedListAsync();
+        }
 
-        //    var validTags = tags.Where(x => !string.IsNullOrWhiteSpace(x))
-        //        .Select(x => new
-        //        {
-        //            Name = x,
-        //            Slug = x.GenerateSlug()
-        //        })
-        //        .GroupBy(x => x.Slug)
-        //        .ToDictionary(g => g.Key, g => g.First().Name);
-
-
-        //    foreach (var kv in validTags)
-        //    {
-        //        if (post.Tags.Any(x => string.Compare(x.UrlSlug, kv.Key, StringComparison.InvariantCultureIgnoreCase) == 0)) continue;
-
-        //        var tag = await GetTagAsync(kv.Key, cancellationToken) ?? new Tag()
-        //        {
-        //            Name = kv.Value,
-        //            Description = kv.Value,
-        //            UrlSlug = kv.Key
-        //        };
-
-        //        post.Tags.Add(tag);
-        //    }
-
-        //    post.Tags = post.Tags.Where(t => validTags.ContainsKey(t.UrlSlug)).ToList();
-
-        //    if (post.Id > 0)
-        //        _context.Update(post);
-        //    else
-        //        _context.Add(post);
-
-        //    await _context.SaveChangesAsync(cancellationToken);
-
-        //    return post;
-        //}
-
-        //public async Task<bool> IsPostSlugExistedAsync(
-        //    int postId, string slug, CancellationToken cancellationToken = default)
-        //{
-        //    return await _context.Set<Post>()
-        //        .AnyAsync(x => x.Id != postId && x.UrlSlug == slug, cancellationToken);
-        //}
 
         private IQueryable<Post> FilterPosts(PostQuery condition)
         {
@@ -252,13 +202,14 @@ namespace TatBlog.Services.Blogs
                 posts = posts.Where(x => x.Tags.Any(t => t.UrlSlug == condition.TagSlug));
             }
 
-            if (!string.IsNullOrWhiteSpace(condition.Keyword))
+            if (!string.IsNullOrWhiteSpace(condition.KeyWord))
             {
-                posts = posts.Where(x => x.Title.Contains(condition.Keyword) ||
-                                         x.ShortDescription.Contains(condition.Keyword) ||
-                                         x.Description.Contains(condition.Keyword) ||
-                                         x.Category.Name.Contains(condition.Keyword) ||
-                                         x.Tags.Any(t => t.Name.Contains(condition.Keyword)));
+                posts = posts.Where(x => x.Title.Contains(condition.KeyWord) ||
+                                         x.ShortDescription.Contains(condition.KeyWord) ||
+                                         x.Description.Contains(condition.KeyWord) ||
+                                         x.Category.Name.Contains(condition.KeyWord) ||
+                                         x.Author.FullName.Contains(condition.KeyWord) ||
+                                         x.Tags.Any(t => t.Name.Contains(condition.KeyWord)));
             }
 
             if (condition.Year > 0)

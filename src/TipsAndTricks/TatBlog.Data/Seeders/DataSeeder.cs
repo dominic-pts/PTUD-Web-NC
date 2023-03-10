@@ -147,7 +147,7 @@ namespace TatBlog.Data.Seeders
                 Category= categories[1],
                 Tags= new List<Tag>()
                 {
-                    tags[1]
+                    tags[1],tags[4]
                 }
             },
             new()
@@ -165,7 +165,7 @@ namespace TatBlog.Data.Seeders
                 Category= categories[2],
                 Tags= new List<Tag>()
                 {
-                    tags[2]
+                    tags[2],tags[5],tags[7]
                 }
             },
             new()
@@ -183,7 +183,44 @@ namespace TatBlog.Data.Seeders
                 Category= categories[3],
                 Tags= new List<Tag>()
                 {
-                    tags[3]
+                    tags[3],tags[6]
+                }
+            },
+
+            new()
+            {
+                Title = "Hệ thống Internet của vật",
+                ShortDescription = "Hệ thống Internet của vật là một công nghệ mới được phát triển để kết nối các thiết bị Internet of Things (IoT) với nhau bằng cách sử dụng các cảm biến, bộ vi điều khiển và kết nối mạng không dây",
+                Description = "Hệ thống này cho phép các thiết bị IoT giao tiếp với nhau và chia sẻ thông tin mà không cần phải thông qua một thiết bị trung gian, giúp tăng tính linh hoạt và tối ưu hiệu suất của các thiết bị IoT ",
+                Meta = " (Meta)Hệ thống Internet của vật sẽ đóng vai trò quan trọng trong việc xây dựng một môi trường kết nối hoàn chỉnh và thông minh trong thế giới IoT ngày càng phát triển.",
+                UrlSlug = "pham-ly-thanh",
+                Published= true,
+                PostedDate= new DateTime(2021, 9, 30, 10, 20, 0),
+                ModifiedDate = null,
+                ViewCount = 11,
+                Author = authors[3],
+                Category= categories[3],
+                Tags= new List<Tag>()
+                {
+                    tags[3],tags[6]
+                }
+            },
+            new()
+            {
+                Title = "Trí tuệ nhân tạo (Artificial Intelligence - AI)",
+                ShortDescription = " Trí tuệ nhân tạo là khả năng của máy tính hoặc hệ thống máy tính",
+                Description = " để thực hiện các tác vụ giống như con người, bao gồm cả học và tự động hoá các quyết định. ",
+                Meta = "Nó được sử dụng rộng rãi trong ngành IT",
+                UrlSlug = "tam-tam-a",
+                Published= true,
+                PostedDate= new DateTime(2021, 9, 30, 10, 20, 0),
+                ModifiedDate = null,
+                ViewCount = 11,
+                Author = authors[3],
+                Category= categories[3],
+                Tags= new List<Tag>()
+                {
+                    tags[3],tags[6]
                 }
             }
         };
