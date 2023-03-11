@@ -58,13 +58,11 @@ namespace TatBlog.Services.Blogs
             int pageSize = 10, 
             CancellationToken cancellationToken = default);
 
-        // t.Tương tự câu trên nhưng yêu cầu trả về kiểu IPagedList<T>.Trong đó T
-        // là kiểu dữ liệu của đối tượng mới được tạo từ đối tượng Post.Hàm này có
-        // thêm một đầu vào là Func<IQueryable<Post>, IQueryable<T>> mapper
-        // để ánh xạ các đối tượng Post thành các đối tượng T theo yêu cầu.
-        //Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, 
-        //    Func<IQueryable<Post>, 
-        //        IQueryable<T>> mapper,
-        //    CancellationToken cancellationToken = default);
+        // Tìm một thẻ (Tag) theo tên định danh (slug) 
+        Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
+
+        // Tìm bài viết có tên định danh là 'slug
+        // và được đăng vào tháng 'month' năm 'year'
+        Task<Post> GetPostAsync(int year, int month, int day, string slug, CancellationToken cancellationToken = default);
     }
 }

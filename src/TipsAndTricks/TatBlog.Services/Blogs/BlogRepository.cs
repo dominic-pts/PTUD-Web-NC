@@ -114,18 +114,7 @@ namespace TatBlog.Services.Blogs
 
         //=====================phần C========================
 
-        // Lấy tag theo tên định danh (Slug)
-        //public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
-        //{
-        //    IQueryable<Tag> tagQuery = _context.Set<Tag>().Include(i => i.Posts);
 
-        //    if (!string.IsNullOrWhiteSpace(slug))
-        //    {
-        //        tagQuery = tagQuery.Where(x => x.UrlSlug == slug);
-        //    }
-
-        //    return await tagQuery.FirstOrDefaultAsync(cancellationToken);
-        //}
 
 
         //======================Lap 02=======================
@@ -158,7 +147,6 @@ namespace TatBlog.Services.Blogs
 
             return await result.ToPagedListAsync();
         }
-
 
         private IQueryable<Post> FilterPosts(PostQuery condition)
         {
@@ -232,7 +220,41 @@ namespace TatBlog.Services.Blogs
 
         }
 
-       
+        public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Tag>()
+                                    .Where(t => t.UrlSlug.Contains(slug))
+                                    .FirstOrDefaultAsync(cancellationToken);
+        }
+        public async Task<Post> GetPostAsync(int year, int month, int day, string slug, CancellationToken cancellationToken = default)
+        {
+            IQueryable<Post> postsQuery = _context.Set<Post>()
+                                                      .Include(x => x.Category)
+                                                      .Include(x => x.Author)
+                                                      .Include(x => x.Tags);
+
+            if (year > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Year == year);
+            }
+
+            if (month > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Month == month);
+            }
+
+            if (day > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Day == day);
+            }
+
+            if (!string.IsNullOrWhiteSpace(slug))
+            {
+                postsQuery = postsQuery.Where(x => x.UrlSlug == slug);
+            }
+
+            return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
     }
 
 }
