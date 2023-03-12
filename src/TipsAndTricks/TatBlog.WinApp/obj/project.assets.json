@@ -800,7 +800,7 @@
           }
         }
       },
-      "System.Linq.Dynamic.Core/1.3.0": {
+      "System.Linq.Dynamic.Core/1.3.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/System.Linq.Dynamic.Core.dll": {
@@ -1198,7 +1198,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "System.Linq.Dynamic.Core": "1.3.0",
+          "System.Linq.Dynamic.Core": "1.3.1",
           "TatBlog.Core": "1.0.0",
           "TatBlog.Data": "1.0.0"
         },
@@ -2518,10 +2518,10 @@
         "system.io.nuspec"
       ]
     },
-    "System.Linq.Dynamic.Core/1.3.0": {
-      "sha512": "WocaU/koGKDu/kiHGJCT6ocqqygQmD5B+9nCyA3nWbMywvPVRhtre1rTHCUNdoi6ZBnPOMvkqqx8oVkP1VCy3Q==",
+    "System.Linq.Dynamic.Core/1.3.1": {
+      "sha512": "XkXCpIrkwuOHOa4OPVZONgCoSIPNRXJbvIrxsu1Bm2Cqhl4KdbTYETVOtKZ8XW65U6RD2ng3me2isTpZZAjJJA==",
       "type": "package",
-      "path": "system.linq.dynamic.core/1.3.0",
+      "path": "system.linq.dynamic.core/1.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2569,7 +2569,7 @@
         "lib/uap10.0.10240/System.Linq.Dynamic.Core.pri",
         "lib/uap10.0.10240/System.Linq.Dynamic.Core.xml",
         "logo.png",
-        "system.linq.dynamic.core.1.3.0.nupkg.sha512",
+        "system.linq.dynamic.core.1.3.1.nupkg.sha512",
         "system.linq.dynamic.core.nuspec"
       ]
     },
