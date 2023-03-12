@@ -56,6 +56,8 @@ namespace TatBlog.WebApp.Controllers
             return View(postsList);
         }
 
+
+        //hiện thị category
         public async Task<IActionResult> Category( string slug = "")
         {
             if (slug == null) return NotFound();
@@ -70,6 +72,64 @@ namespace TatBlog.WebApp.Controllers
             return View(posts);
         }
 
+        // hiện thi các tác giả 
+        public async Task<IActionResult> Author(string slug = "")
+        {
+            if (slug == null) return NotFound();
+
+            var postQuery = new PostQuery
+            {
+                AuthorSlug = slug
+            };
+
+            var posts = await _blogRepository.GetPostByQueryAsync(postQuery);
+
+            return View(posts);
+        }
+
+        // khi bấm vô sẽ xuất hiện các những thẻ có trong bài viết
+        public async Task<IActionResult> Tag(string slug = "")
+        {
+            if (slug == null) return NotFound();
+
+            var postQuery = new PostQuery
+            {
+                TagSlug = slug
+            };
+
+            var posts = await _blogRepository.GetPostByQueryAsync(postQuery);
+
+            var tag = await _blogRepository.GetTagBySlugAsync(slug);
+            ViewData["Tag"] = tag;
+
+            return View(posts);
+        }
+
+        // để hiển thị chi tiết một bài viết khi người dùng nhấn vào nút Xem chi tiết
+        public async Task<IActionResult> Post(
+                                  int year = 2023,
+                                  int month = 1,
+                                  int day = 1,
+                                  string slug = null)
+        {
+            if (slug == null) return NotFound();
+
+            var post = await _blogRepository.GetPostAsync(year, month, day, slug);
+
+            if (post == null) return Content("Không tìm thấy bài viết !!!");
+
+            if (!post.Published)
+            {
+                ModelState.AddModelError("not access", "Bài viết này lỗi kko truy cập đc");
+                return View();
+            }
+            else
+            {
+                await _blogRepository.IncreaseViewCountAsync(post.Id);
+            }
+
+            return View(post);
+        }
 
     }
 }

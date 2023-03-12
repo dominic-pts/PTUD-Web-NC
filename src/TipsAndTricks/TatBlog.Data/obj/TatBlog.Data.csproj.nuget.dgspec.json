@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {}
+    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+        "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
         "projectName": "TatBlog.Core",
-        "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
+        "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
         "packagesPath": "C:\\Users\\myloc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\obj\\",
+        "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\myloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+    "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+        "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
         "projectName": "TatBlog.Data",
-        "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
+        "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj",
         "packagesPath": "C:\\Users\\myloc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\obj\\",
+        "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\myloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-                "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+              "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+                "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
               }
             }
           }

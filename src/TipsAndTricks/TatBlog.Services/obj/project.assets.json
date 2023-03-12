@@ -710,7 +710,7 @@
           }
         }
       },
-      "System.Linq.Dynamic.Core/1.3.0": {
+      "System.Linq.Dynamic.Core/1.3.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/System.Linq.Dynamic.Core.dll": {
@@ -2274,10 +2274,10 @@
         "system.io.nuspec"
       ]
     },
-    "System.Linq.Dynamic.Core/1.3.0": {
-      "sha512": "WocaU/koGKDu/kiHGJCT6ocqqygQmD5B+9nCyA3nWbMywvPVRhtre1rTHCUNdoi6ZBnPOMvkqqx8oVkP1VCy3Q==",
+    "System.Linq.Dynamic.Core/1.3.1": {
+      "sha512": "XkXCpIrkwuOHOa4OPVZONgCoSIPNRXJbvIrxsu1Bm2Cqhl4KdbTYETVOtKZ8XW65U6RD2ng3me2isTpZZAjJJA==",
       "type": "package",
-      "path": "system.linq.dynamic.core/1.3.0",
+      "path": "system.linq.dynamic.core/1.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2325,7 +2325,7 @@
         "lib/uap10.0.10240/System.Linq.Dynamic.Core.pri",
         "lib/uap10.0.10240/System.Linq.Dynamic.Core.xml",
         "logo.png",
-        "system.linq.dynamic.core.1.3.0.nupkg.sha512",
+        "system.linq.dynamic.core.1.3.1.nupkg.sha512",
         "system.linq.dynamic.core.nuspec"
       ]
     },
@@ -3322,7 +3322,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "System.Linq.Dynamic.Core >= 1.3.0",
+      "System.Linq.Dynamic.Core >= 1.3.1",
       "TatBlog.Core >= 1.0.0",
       "TatBlog.Data >= 1.0.0"
     ]
@@ -3333,11 +3333,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
+      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
       "projectName": "TatBlog.Services",
-      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
+      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj",
       "packagesPath": "C:\\Users\\myloc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Services\\obj\\",
+      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\myloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3354,11 +3354,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
             },
-            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
-              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Homework\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
+            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
             }
           }
         }
@@ -3375,7 +3375,7 @@
         "dependencies": {
           "System.Linq.Dynamic.Core": {
             "target": "Package",
-            "version": "[1.3.0, )"
+            "version": "[1.3.1, )"
           }
         },
         "imports": [
