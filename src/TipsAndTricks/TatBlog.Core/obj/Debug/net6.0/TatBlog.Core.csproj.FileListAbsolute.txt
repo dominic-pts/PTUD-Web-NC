@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.deps.json
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.dll
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\MSSV-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.pdb
@@ -22,6 +23,8 @@ C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\obj\Debug\net6.0\refint\TatBlog.Core.dll
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\obj\Debug\net6.0\TatBlog.Core.pdb
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab01-Practice\PTUD-Web-NC\src\TipsAndTricks\TatBlog.Core\obj\Debug\net6.0\ref\TatBlog.Core.dll
+=======
+>>>>>>> ef6d567274a55f8a3c88b293f93ebff2c7d6fc44
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.deps.json
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.dll
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.Core\bin\Debug\net6.0\TatBlog.Core.pdb

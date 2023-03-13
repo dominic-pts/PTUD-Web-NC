@@ -110,20 +110,151 @@ namespace TatBlog.Services.Blogs
                 .ToPagedListAsync(pagingParams, cancellationToken);
         }
 
-        // phần C
-        // Lấy tag theo tên định danh (Slug)
-        //public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
-        //{
-        //    IQueryable<Tag> tagQuery = _context.Set<Tag>().Include(i => i.Posts);
 
-        //    if (!string.IsNullOrWhiteSpace(slug))
-        //    {
-        //        tagQuery = tagQuery.Where(x => x.UrlSlug == slug);
-        //    }
 
-        //    return await tagQuery.FirstOrDefaultAsync(cancellationToken);
-        //}
+        //=====================phần C========================
 
+
+
+
+        //======================Lap 02=======================
+
+        public async Task<IPagedList<Post>> GetPagedPostAsync(
+        PostQuery postQuery,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(postQuery).ToPagedListAsync(
+                pageNumber, pageSize,
+                nameof(Post.PostedDate), "DESC",
+                cancellationToken);
+        }
+
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(query).ToPagedListAsync(
+                                    pageNumber,
+                                    pageSize,
+                                    nameof(Post.PostedDate),
+                                    "DESC",
+                                    cancellationToken);
+        }
+
+        public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> result = mapper(FilterPosts(query));
+
+            return await result.ToPagedListAsync();
+        }
+
+        private IQueryable<Post> FilterPosts(PostQuery condition)
+        {
+            IQueryable<Post> posts = _context.Set<Post>()
+                .Include(x => x.Category)
+                .Include(x => x.Author)
+                .Include(x => x.Tags);
+
+            if (condition.PublishedOnly)
+            {
+                posts = posts.Where(x => x.Published);
+            }
+
+            if (condition.NotPublished)
+            {
+                posts = posts.Where(x => !x.Published);
+            }
+
+            if (condition.CategoryId > 0)
+            {
+                posts = posts.Where(x => x.CategoryId == condition.CategoryId);
+            }
+
+            if (!string.IsNullOrWhiteSpace(condition.CategorySlug))
+            {
+                posts = posts.Where(x => x.Category.UrlSlug == condition.CategorySlug);
+            }
+
+            if (condition.AuthorId > 0)
+            {
+                posts = posts.Where(x => x.AuthorId == condition.AuthorId);
+            }
+
+            if (!string.IsNullOrWhiteSpace(condition.AuthorSlug))
+            {
+                posts = posts.Where(x => x.Author.UrlSlug == condition.AuthorSlug);
+            }
+
+            if (!string.IsNullOrWhiteSpace(condition.TagSlug))
+            {
+                posts = posts.Where(x => x.Tags.Any(t => t.UrlSlug == condition.TagSlug));
+            }
+
+            if (!string.IsNullOrWhiteSpace(condition.KeyWord))
+            {
+                posts = posts.Where(x => x.Title.Contains(condition.KeyWord) ||
+                                         x.ShortDescription.Contains(condition.KeyWord) ||
+                                         x.Description.Contains(condition.KeyWord) ||
+                                         x.Category.Name.Contains(condition.KeyWord) ||
+                                         x.Author.FullName.Contains(condition.KeyWord) ||
+                                         x.Tags.Any(t => t.Name.Contains(condition.KeyWord)));
+            }
+
+            if (condition.Year > 0)
+            {
+                posts = posts.Where(x => x.PostedDate.Year == condition.Year);
+            }
+
+            if (condition.Month > 0)
+            {
+                posts = posts.Where(x => x.PostedDate.Month == condition.Month);
+            }
+
+            if (!string.IsNullOrWhiteSpace(condition.TitleSlug))
+            {
+                posts = posts.Where(x => x.UrlSlug == condition.TitleSlug);
+            }
+
+            return posts;
+
+
+        }
+
+        public async Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Tag>()
+                                    .Where(t => t.UrlSlug.Contains(slug))
+                                    .FirstOrDefaultAsync(cancellationToken);
+        }
+        public async Task<Post> GetPostAsync(int year, int month, int day, string slug, CancellationToken cancellationToken = default)
+        {
+            IQueryable<Post> postsQuery = _context.Set<Post>()
+                                                      .Include(x => x.Category)
+                                                      .Include(x => x.Author)
+                                                      .Include(x => x.Tags);
+
+            if (year > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Year == year);
+            }
+
+            if (month > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Month == month);
+            }
+
+            if (day > 0)
+            {
+                postsQuery = postsQuery.Where(x => x.PostedDate.Day == day);
+            }
+
+            if (!string.IsNullOrWhiteSpace(slug))
+            {
+                postsQuery = postsQuery.Where(x => x.UrlSlug == slug);
+            }
+
+            return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
     }
 
 }

@@ -4,6 +4,7 @@ using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using TatBlog.WinApp;
+using System; 
 
 
 
@@ -11,12 +12,12 @@ using TatBlog.WinApp;
 //Tao doi tuong  dbContext de quan ly phien lam viec
 // voi CSDL va trang thai cua cac doi tuong
 
-var context = new BlogDbContext();
+//var context = new BlogDbContext();
 
 
 //Tao doi tuong BlogRepository
 
-IBlogRepository blogRepo = new BlogRepository(context);
+//IBlogRepository blogRepo = new BlogRepository(context);
 
 
 //==================================================================================
@@ -143,15 +144,15 @@ IBlogRepository blogRepo = new BlogRepository(context);
 //======================== C. Bài tập thực hành ====================================
 //==================================================================================
 
-    //// Lấy danh sách từ khóa
-    //Tag tag = await blogRepo.GetTagBySlugAsync(slug);
+//// Lấy danh sách từ khóa
+//Tag tag = await blogRepo.GetTagBySlugAsync(slug);
 
-    //// Xuất ra màn hình
-    //Console.WriteLine("{0,-5}{1,-50}{2,10}", "ID", "Name", "Count");
-    //if (tag != null)
-    //{
-    //    Console.WriteLine("{0,-5}{1,-50}{2,10}", tag.Id, tag.Name, tag.Posts.Count);
-    //}
+//// Xuất ra màn hình
+//Console.WriteLine("{0,-5}{1,-50}{2,10}", "ID", "Name", "Count");
+//if (tag != null)
+//{
+//    Console.WriteLine("{0,-5}{1,-50}{2,10}", tag.Id, tag.Name, tag.Posts.Count);
+//}
 
 
 

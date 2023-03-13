@@ -5,6 +5,7 @@
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\author.png",
       "PackagePath": "staticwebassets\\images\\author.png"
     },
@@ -61,6 +62,12 @@
       "PackagePath": "staticwebassets\\images\\person_4.jpg"
     },
     {
+=======
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-error.png",
+      "PackagePath": "staticwebassets\\images\\img-error.png"
+    },
+    {
+>>>>>>> ef6d567274a55f8a3c88b293f93ebff2c7d6fc44
       "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },

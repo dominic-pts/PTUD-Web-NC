@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "vJG11lwEs1goUbwhIVdHIWQlIGXFUmjQs0MqS2zv0eo=",
+=======
+  "Hash": "wxtKn57bIF6FT3QoWmUh0xF1AxI8xZ2QP7LaoRgeqVA=",
+>>>>>>> ef6d567274a55f8a3c88b293f93ebff2c7d6fc44
   "Source": "TatBlog.WebApp",
   "BasePath": "_content/TatBlog.WebApp",
   "Mode": "Default",
@@ -34,12 +38,16 @@
       "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\author.png",
+=======
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-error.png",
+>>>>>>> ef6d567274a55f8a3c88b293f93ebff2c7d6fc44
       "SourceId": "TatBlog.WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
       "BasePath": "_content/TatBlog.WebApp",
-      "RelativePath": "images/author.png",
+      "RelativePath": "images/img-error.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,9 +56,10 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\author.png"
+      "OriginalItemSpec": "wwwroot\\images\\img-error.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\bg.jpg",
       "SourceId": "TatBlog.WebApp",
       "SourceType": "Discovered",
@@ -276,6 +285,12 @@
       "SourceId": "TatBlog.WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\js\\main.js",
+      "SourceId": "TatBlog.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+>>>>>>> ef6d567274a55f8a3c88b293f93ebff2c7d6fc44
       "BasePath": "_content/TatBlog.WebApp",
       "RelativePath": "js/main.js",
       "AssetKind": "All",

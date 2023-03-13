@@ -1,9 +1,14 @@
-﻿<h1>Tìm kiếm bài viết</h1>
+﻿<div class="my-4">
 
-<h1>Các Chủ đề</h1>
+    <h3 class="text-success">Tìm kiếm bài viết</h3>
+    <partial name="_SearchForm" />
 
-<h1>Bài viết nổi bật </h1>
+    @await Component.InvokeAsync("CategoriesWidget")
 
-<h1>Đăng ký nhận tin mới</h1>
+    <h3>Bài viết nổi bật </h3>
+    <hr />
+    <h3>Đăng ký nhận tin mới</h3>
+    <hr />
+    <h3> Tag cloud</h3>
 
-<h1> Tag cloud</h1>
+</div>
