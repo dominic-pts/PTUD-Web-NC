@@ -3639,11 +3639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
+      "projectUniqueName": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
       "projectName": "TatBlog.WinApp",
-      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
+      "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WinApp\\TatBlog.WinApp.csproj",
       "packagesPath": "C:\\Users\\myloc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.WinApp\\obj\\",
+      "outputPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WinApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\myloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3660,14 +3660,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
-              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
+            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj": {
+              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj"
             },
-            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
-              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
+            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj": {
+              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Data\\TatBlog.Data.csproj"
             },
-            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
-              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab01-Practice\\PTUD-Web-NC\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj"
+            "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj": {
+              "projectPath": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.Services\\TatBlog.Services.csproj"
             }
           }
         }
