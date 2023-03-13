@@ -11,25 +11,22 @@
     <link rel="shortcut icon" href="https://t.vdoc.vn/data/image/2020/11/03/Toan2-200-size-32x32-znd.svg" />
     @await RenderSectionAsync("style",required:false)
 </head>
-<body>
-    @*Thanh tiêu đề logo,menu*@
-    <partial name="_Navbar" />
-    <div class="container-fluid">
-        @*Phần nội dung chính*@
-        @*Lỗi ở đây  nè ()*@
-        @RenderBody()
+@*Thanh tiêu đề logo,menu*@
+<partial name="_Navbar" />
+<div class="container-fluid">
+    @*Phần nội dung chính*@
+    @RenderBody()
+</div>
+
+<footer class="border-top footer text-muted ">
+    <div class="container-fluid text-center">
+        &copy; 2023 - Tips & Aacute; Tricks Blog
     </div>
+</footer>
 
-    <footer class="border-top footer text-muted ">
-        <div class="container-fluid text-center">
-            &copy; 2023 - Tips & Aacute; Tricks Blog
-        </div>
-    </footer>
+<script src="~/lib/jquery/dist/jquery.min.js" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" />
+<script src="~/js/main.js" asp-append-version="true" />
 
-    <script src="~/lib/jquery/dist/jquery.min.js" />
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" />
-    <script src="~/js/main.js" asp-append-version="true" />
-
-        @await RenderSectionAsync("scripts",required:false)
-</body>
+    @await RenderSectionAsync("scripts",required:false)
 </html>

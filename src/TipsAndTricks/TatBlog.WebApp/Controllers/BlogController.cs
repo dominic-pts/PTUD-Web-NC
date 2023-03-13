@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TatBlog.Core.DTO;
 using TatBlog.Services.Blogs;
 
@@ -12,10 +13,6 @@ namespace TatBlog.WebApp.Controllers
         {
             _blogRepository = blogRepository;
         }
-
-        //public IActionResult Index()
-        //=> View();
-
 
         public IActionResult About()
         => View();
@@ -106,11 +103,7 @@ namespace TatBlog.WebApp.Controllers
         }
 
         // để hiển thị chi tiết một bài viết khi người dùng nhấn vào nút Xem chi tiết
-        public async Task<IActionResult> Post(
-                                  int year = 2023,
-                                  int month = 1,
-                                  int day = 1,
-                                  string slug = null)
+        public async Task<IActionResult> Post(int year = 2023, int month = 1,int day = 1, string slug = null)
         {
             if (slug == null) return NotFound();
 
@@ -131,5 +124,21 @@ namespace TatBlog.WebApp.Controllers
             return View(post);
         }
 
+        // hiện thị danh sách bài viết được đăng trong tháng và năm đã chọn(do người
+        // dùng click chuột vào các tháng trong view component Archives ở bài tập 3).
+        public async Task<IActionResult> Archives(int year, int month)
+        {
+            PostQuery query = new PostQuery
+            {
+                Year = year,
+                Month = month
+            };
+
+            var posts = await _blogRepository.GetPostByQueryAsync(query);
+
+            ViewData["PostQuery"] = query;
+
+            return View(posts);
+        }
     }
 }
