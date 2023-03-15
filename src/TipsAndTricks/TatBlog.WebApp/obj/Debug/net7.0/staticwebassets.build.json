@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wxtKn57bIF6FT3QoWmUh0xF1AxI8xZ2QP7LaoRgeqVA=",
+  "Hash": "DB/GiGNMXZrJwE09rz7pB0YYvoHcFUanCzgXdcq1LMQ=",
   "Source": "TatBlog.WebApp",
   "BasePath": "_content/TatBlog.WebApp",
   "Mode": "Default",
@@ -3449,6 +3449,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\README.md"
+    },
+    {
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\lib\\speakingurl\\LICENSE",
+      "SourceId": "TatBlog.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+      "BasePath": "_content/TatBlog.WebApp",
+      "RelativePath": "lib/speakingurl/LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\speakingurl\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\lib\\speakingurl\\README.md",
+      "SourceId": "TatBlog.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+      "BasePath": "_content/TatBlog.WebApp",
+      "RelativePath": "lib/speakingurl/README.md",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\speakingurl\\README.md"
+    },
+    {
+      "Identity": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\lib\\speakingurl\\speakingurl.min.js",
+      "SourceId": "TatBlog.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\",
+      "BasePath": "_content/TatBlog.WebApp",
+      "RelativePath": "lib/speakingurl/speakingurl.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\speakingurl\\speakingurl.min.js"
     }
   ]
 }

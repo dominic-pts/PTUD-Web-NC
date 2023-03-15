@@ -22,7 +22,7 @@ public class PostFilterModel
   public int? Month { get; set; }
 
   [DisplayName("Ngày")]
-  public int? Day { get; set; }
+  //public int? Day { get; set; }
 
   public IEnumerable<SelectListItem> AuthorList { get; set; }
   public IEnumerable<SelectListItem> CategoryList { get; set; }

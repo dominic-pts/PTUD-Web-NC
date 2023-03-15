@@ -279,3 +279,9 @@ C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTric
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\Mapster.DependencyInjection.dll
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\Microsoft.Exchange.WebServices.Auth.dll
 C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\Microsoft.Exchange.WebServices.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net7.0\TatBlog.WebApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
+C:\Users\myloc\Desktop\Study\Code_PTUDWNC\2015610-Lab02-Practice\src\TipsAndTricks\TatBlog.WebApp\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll

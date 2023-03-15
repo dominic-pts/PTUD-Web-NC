@@ -272,6 +272,66 @@ namespace TatBlog.Services.Blogs
 
             return await tagQuery.ToListAsync(cancellationToken);
         }
+
+        public async Task<Post> GetPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default)
+        {
+            IQueryable<Post> postQuery = _context.Set<Post>()
+                                     .Include(p => p.Category)
+                                     .Include(p => p.Author)
+                                     .Include(p => p.Tags);
+
+            if (published)
+            {
+                postQuery = postQuery.Where(x => x.Published);
+            }
+
+            return await postQuery.Where(p => p.Id.Equals(id))
+                                  .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default)
+        {
+            if (post.Id > 0)
+            {
+                await _context.Entry(post).Collection(x => x.Tags).LoadAsync(cancellationToken);
+            }
+            else
+            {
+                post.Tags = new List<Tag>();
+            }
+
+            var validTags = tags.Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(x => new
+                {
+                    Name = x,
+                    Slug = x.GenerateSlug()
+                })
+                .GroupBy(x => x.Slug)
+                .ToDictionary(g => g.Key, g => g.First().Name);
+
+            foreach (var kv in validTags)
+            {
+                if (post.Tags.Any(x => string.Compare(x.UrlSlug, kv.Key, StringComparison.InvariantCultureIgnoreCase) == 0)) continue;
+
+                var tag = await GetTagBySlugAsync(kv.Key, cancellationToken) ?? new Tag()
+                {
+                    Name = kv.Value,
+                    Description = kv.Value,
+                    UrlSlug = kv.Key
+                };
+
+                post.Tags.Add(tag);
+            }
+
+            post.Tags = post.Tags.Where(t => validTags.ContainsKey(t.UrlSlug)).ToList();
+
+            if (post.Id > 0)
+                _context.Update(post);
+            else
+                _context.Add(post);
+
+            await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 
 }
