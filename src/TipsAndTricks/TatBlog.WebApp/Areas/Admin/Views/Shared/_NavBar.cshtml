@@ -1,42 +1,43 @@
 ﻿<header>
     <nav class="navbar navbar-expand-sm
-                navbar-toggleable-sm navbar-light
-                bg-white border-bottom box-shadow">
-    <div class="container-fluid">
-        <a class="navbar-brand"
-            asp-area="Admin"
-            asp-controller="Dashboard"
-            asp-action="Index">
-            Tips & Tricks
-        </a>
-        <button class=" navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target=".navbar-collapse"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+              navbar-toggleable-sm navbar-light
+              bg-white border-bottom box-shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand"
+               asp-area="Admin"
+               asp-controller="Dashboard"
+               asp-action="Index">
+                Tips & Tricks
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target=" .navbar-collapse"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-collapse flex-grow-1 ">
+            </button>
+            <div class="navbar-collapse collapse
+                d-sm-inline-flex
+                justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
                         <a class="nav-link text-dark"
                            asp-area="Admin"
                            asp-controller="Categories"
                            asp-action="Index"
                            title="Xem danh sách chủ đề">
-                            Chủ Đề
+                            Chủ đề
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark"
                            asp-area="Admin"
-                           asp-controller="Author"
+                           asp-controller="Authors"
                            asp-action="Index"
                            title="Xem danh sách tác giả">
-                            Tác Giả
+                            Tác giả
                         </a>
                     </li>
                     <li class="nav-item">
@@ -44,7 +45,7 @@
                            asp-area="Admin"
                            asp-controller="Tags"
                            asp-action="Index"
-                           title="Xem danh sách thẻ/từ kháo">
+                           title="Xem danh sách thẻ/ từ khóa">
                             Thẻ
                         </a>
                     </li>
@@ -62,13 +63,12 @@
                            asp-area="Admin"
                            asp-controller="Comments"
                            asp-action="Index"
-                           title="Xem danh sách bình luận bài viết">
-                           Bình luận
+                           title="Xem danh sách bình luận">
+                            Bình luận
                         </a>
                     </li>
-            </ul>
+                </ul>
+            </div>
         </div>
-
-    </div> 
     </nav>
 </header>

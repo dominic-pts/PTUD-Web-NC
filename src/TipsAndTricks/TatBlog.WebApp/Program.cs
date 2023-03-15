@@ -1,9 +1,11 @@
 ﻿using TatBlog.WebApp.Extensions;
+using TatBlog.WebApp.Masters;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.ConfigureMvc()
-           .ConfigureServices();
+           .ConfigureServices()
+           .ConfigureMapster();
 }
 
 var app = builder.Build();

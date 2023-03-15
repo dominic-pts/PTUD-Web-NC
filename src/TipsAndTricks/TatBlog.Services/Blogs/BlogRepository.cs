@@ -190,14 +190,14 @@ namespace TatBlog.Services.Blogs
                 posts = posts.Where(x => x.Tags.Any(t => t.UrlSlug == condition.TagSlug));
             }
 
-            if (!string.IsNullOrWhiteSpace(condition.KeyWord))
+            if (!string.IsNullOrWhiteSpace(condition.Keyword))
             {
-                posts = posts.Where(x => x.Title.Contains(condition.KeyWord) ||
-                                         x.ShortDescription.Contains(condition.KeyWord) ||
-                                         x.Description.Contains(condition.KeyWord) ||
-                                         x.Category.Name.Contains(condition.KeyWord) ||
-                                         x.Author.FullName.Contains(condition.KeyWord) ||
-                                         x.Tags.Any(t => t.Name.Contains(condition.KeyWord)));
+                posts = posts.Where(x => x.Title.Contains(condition.Keyword) ||
+                                         x.ShortDescription.Contains(condition.Keyword) ||
+                                         x.Description.Contains(condition.Keyword) ||
+                                         x.Category.Name.Contains(condition.Keyword) ||
+                                         x.Author.FullName.Contains(condition.Keyword) ||
+                                         x.Tags.Any(t => t.Name.Contains(condition.Keyword)));
             }
 
             if (condition.Year > 0)
@@ -254,6 +254,23 @@ namespace TatBlog.Services.Blogs
             }
 
             return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default)
+        {
+            var tagQuery = _context.Set<Author>()
+                                      .Select(x => new AuthorItem()
+                                      {
+                                          Id = x.Id,
+                                          FullName = x.FullName,
+                                          UrlSlug = x.UrlSlug,
+                                          ImageUrl = x.ImageUrl,
+                                          JoinedDate = x.JoinedDate,
+                                          Notes = x.Notes,
+                                          PostCount = x.Posts.Count(p => p.Published)
+                                      });
+
+            return await tagQuery.ToListAsync(cancellationToken);
         }
     }
 

@@ -24,7 +24,10 @@ namespace TatBlog.Core.Contracts
     }
     public interface IPagedList<out T> : IPagedList, IEnumerable<T>
     {
+        // Lấy phần tử tại vị trí index (bắt đầu từ 0)
         T this[int index] { get; }
+
+        // Đếm số lượng phần tử chứa trong trang
         int Count { get; }
     }
 }
