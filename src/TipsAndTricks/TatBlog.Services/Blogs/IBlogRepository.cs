@@ -75,6 +75,9 @@ namespace TatBlog.Services.Blogs
 
         // m. Thêm hay cập nhật một bài viết. 
         Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
-
+        // n. Chuyển đổi trạng thái Published của bài viết. 
+        Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
+        // i. Nút Xoá bài viết ở trang Admin
+        Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default);
     }
 }
