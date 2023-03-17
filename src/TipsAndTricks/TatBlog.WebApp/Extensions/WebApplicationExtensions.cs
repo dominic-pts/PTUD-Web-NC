@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
@@ -69,8 +70,6 @@ public static class WebApplicationExtensions
         // để xử lý một HTTP request.
         app.UseRouting();
 
-        //app.UseAuthorization();
-
         return app;
     }
 
@@ -89,6 +88,15 @@ public static class WebApplicationExtensions
         }
 
         return app;
+    }
+
+    // Cấu hình việc sử dụng NLog
+    public static WebApplicationBuilder ConfigureNLog(this WebApplicationBuilder builder)
+    {
+        builder.Logging.ClearProviders();
+        builder.Host.UseNLog();
+
+        return builder;
     }
 }
 

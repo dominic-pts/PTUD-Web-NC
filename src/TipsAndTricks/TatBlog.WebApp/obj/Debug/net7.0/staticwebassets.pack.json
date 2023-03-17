@@ -821,6 +821,26 @@
       "PackagePath": "staticwebassets\\lib\\speakingurl\\speakingurl.min.js"
     },
     {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\uploads\\pictures\\0ff7308bbf0545ada2bd0965b1b1a195.jpg",
+      "PackagePath": "staticwebassets\\uploads\\pictures\\0ff7308bbf0545ada2bd0965b1b1a195.jpg"
+    },
+    {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\uploads\\pictures\\26f4a355f1e14cd5ab8e7b834fa14cce.jpg",
+      "PackagePath": "staticwebassets\\uploads\\pictures\\26f4a355f1e14cd5ab8e7b834fa14cce.jpg"
+    },
+    {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\uploads\\pictures\\34f500bfc59e4e80a6630df7e450266c.jpg",
+      "PackagePath": "staticwebassets\\uploads\\pictures\\34f500bfc59e4e80a6630df7e450266c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\uploads\\pictures\\58c637b9480a4c98bf360f631c0b9bd6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\pictures\\58c637b9480a4c98bf360f631c0b9bd6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\myloc\\Desktop\\Study\\Code_PTUDWNC\\2015610-Lab02-Practice\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\uploads\\pictures\\c9b4ce68a11a4c6daee40dbba5514c2d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\pictures\\c9b4ce68a11a4c6daee40dbba5514c2d.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TatBlog.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

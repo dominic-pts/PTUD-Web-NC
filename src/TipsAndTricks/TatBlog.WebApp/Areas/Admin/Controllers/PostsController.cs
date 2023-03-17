@@ -13,17 +13,18 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 {
     public class PostsController : Controller
     {
-     
+        private readonly ILogger<PostsController> _logger;
         private readonly IBlogRepository _blogRepository;
         private readonly IMapper _mapper;
         private readonly IMediaManager _mediaManager;
 
 
-        public PostsController(IBlogRepository blogRepository, IMapper mapper, IMediaManager mediaManager)
+        public PostsController(IBlogRepository blogRepository, IMapper mapper, IMediaManager mediaManager, ILogger<PostsController> logger)
         {
             _blogRepository = blogRepository;
             _mapper = mapper;
             _mediaManager = mediaManager;   
+            _logger = logger;
         }
 
 
@@ -47,21 +48,25 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index(PostFilterModel model)
         {
-            //var postQuery = new PostQuery
-            //{
-            //    Keyword = model.Keyword,
-            //    CategoryId = model.CategoryId,
-            //    AuthorId = model.AuthorId,
-            //    Year = model.Year,
-            //    Month = model.Month
-            //};
+            _logger.LogInformation("Tạo điều kiện truy vấn");
+
+            var postQuery = new PostQuery
+            {
+                Keyword = model.Keyword,
+                CategoryId = model.CategoryId,
+                AuthorId = model.AuthorId,
+                Year = model.Year,
+                Month = model.Month
+            };
 
             //sử dụng Mapster để tạo đối tượng PostQuery
             // từ đối tượng PostFilterModel model
 
-            var postQuery = _mapper.Map<PostQuery>(model);
- 
-            ViewBag.PostsList = await _blogRepository.GetPagedPostAsync(postQuery, 1, 10);
+            _logger.LogInformation("Lấy danh sách bài viết từ CSDL");
+
+            ViewData["PostsList"] = await _blogRepository.GetPostByQueryAsync(postQuery ,1,10);
+
+            _logger.LogInformation("Chuẩn bị dữ liệu cho ViewModel");
 
             await PopulatePostFilterModelAsync(model);
 
@@ -107,7 +112,7 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
         //===================== save lại các thay đổi của buttom thêm ========================
 
         [HttpPost]
-        public async Task<ActionResult> Edit(IValidator<PostEditModel> postValidator, PostEditModel model)
+        public async Task<ActionResult> Edit([FromServices]IValidator<PostEditModel> postValidator, PostEditModel model)
         {
             var validator = HttpContext.RequestServices.GetService(typeof(IValidator<PostEditModel>));
             var validationResult = await postValidator.ValidateAsync(model);
