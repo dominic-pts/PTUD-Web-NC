@@ -174,5 +174,26 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 
             return slugExisted ? Json($"Slug '{urlSlug}' đã được sử dụng") : Json(true);
         }
+
+
+        //Hàm xuất bản hay không
+        [HttpPost]
+        public async Task<ActionResult> PublishChanged(string postId)
+        {
+            await _blogRepository.ChangePostStatusAsync(Convert.ToInt32(postId));
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        //Hàm xoá
+
+        [HttpPost]
+        public async Task<ActionResult> DeletePost(string id)
+        {
+            await _blogRepository.DeletePostByIdAsync(Convert.ToInt32(id));
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -332,6 +332,29 @@ namespace TatBlog.Services.Blogs
 
             await _context.SaveChangesAsync(cancellationToken);
         }
+
+        // chuyển đổi trang thái xuất bản
+        public async Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var post = await _context.Posts.FindAsync(id);
+
+            post.Published = !post.Published;
+
+            _context.Attach(post).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+        // xoá  bài viết 
+        public async Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default)
+        {
+            var post = await _context.Set<Post>().FindAsync(id);
+
+            if (post is null) return false;
+
+            _context.Set<Post>().Remove(post);
+            var rowsCount = await _context.SaveChangesAsync(cancellationToken);
+
+            return rowsCount > 0;
+        }
     }
 
 }
