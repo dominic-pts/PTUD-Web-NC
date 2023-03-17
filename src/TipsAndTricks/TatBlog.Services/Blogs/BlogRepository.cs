@@ -190,14 +190,14 @@ namespace TatBlog.Services.Blogs
                 posts = posts.Where(x => x.Tags.Any(t => t.UrlSlug == condition.TagSlug));
             }
 
-            if (!string.IsNullOrWhiteSpace(condition.KeyWord))
+            if (!string.IsNullOrWhiteSpace(condition.Keyword))
             {
-                posts = posts.Where(x => x.Title.Contains(condition.KeyWord) ||
-                                         x.ShortDescription.Contains(condition.KeyWord) ||
-                                         x.Description.Contains(condition.KeyWord) ||
-                                         x.Category.Name.Contains(condition.KeyWord) ||
-                                         x.Author.FullName.Contains(condition.KeyWord) ||
-                                         x.Tags.Any(t => t.Name.Contains(condition.KeyWord)));
+                posts = posts.Where(x => x.Title.Contains(condition.Keyword) ||
+                                         x.ShortDescription.Contains(condition.Keyword) ||
+                                         x.Description.Contains(condition.Keyword) ||
+                                         x.Category.Name.Contains(condition.Keyword) ||
+                                         x.Author.FullName.Contains(condition.Keyword) ||
+                                         x.Tags.Any(t => t.Name.Contains(condition.Keyword)));
             }
 
             if (condition.Year > 0)
@@ -254,6 +254,83 @@ namespace TatBlog.Services.Blogs
             }
 
             return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default)
+        {
+            var tagQuery = _context.Set<Author>()
+                                      .Select(x => new AuthorItem()
+                                      {
+                                          Id = x.Id,
+                                          FullName = x.FullName,
+                                          UrlSlug = x.UrlSlug,
+                                          ImageUrl = x.ImageUrl,
+                                          JoinedDate = x.JoinedDate,
+                                          Notes = x.Notes,
+                                          PostCount = x.Posts.Count(p => p.Published)
+                                      });
+
+            return await tagQuery.ToListAsync(cancellationToken);
+        }
+
+        public async Task<Post> GetPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default)
+        {
+            IQueryable<Post> postQuery = _context.Set<Post>()
+                                     .Include(p => p.Category)
+                                     .Include(p => p.Author)
+                                     .Include(p => p.Tags);
+
+            if (published)
+            {
+                postQuery = postQuery.Where(x => x.Published);
+            }
+
+            return await postQuery.Where(p => p.Id.Equals(id))
+                                  .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default)
+        {
+            if (post.Id > 0)
+            {
+                await _context.Entry(post).Collection(x => x.Tags).LoadAsync(cancellationToken);
+            }
+            else
+            {
+                post.Tags = new List<Tag>();
+            }
+
+            var validTags = tags.Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(x => new
+                {
+                    Name = x,
+                    Slug = x.GenerateSlug()
+                })
+                .GroupBy(x => x.Slug)
+                .ToDictionary(g => g.Key, g => g.First().Name);
+
+            foreach (var kv in validTags)
+            {
+                if (post.Tags.Any(x => string.Compare(x.UrlSlug, kv.Key, StringComparison.InvariantCultureIgnoreCase) == 0)) continue;
+
+                var tag = await GetTagBySlugAsync(kv.Key, cancellationToken) ?? new Tag()
+                {
+                    Name = kv.Value,
+                    Description = kv.Value,
+                    UrlSlug = kv.Key
+                };
+
+                post.Tags.Add(tag);
+            }
+
+            post.Tags = post.Tags.Where(t => validTags.ContainsKey(t.UrlSlug)).ToList();
+
+            if (post.Id > 0)
+                _context.Update(post);
+            else
+                _context.Add(post);
+
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 

@@ -4,10 +4,10 @@
     var postQuery = (ViewBag.PostQuery as PostQuery) ?? new PostQuery();
 }
 <div class="p-4">
-    @if (!string.IsNullOrWhiteSpace(postQuery.KeyWord))
+    @if (!string.IsNullOrWhiteSpace(postQuery.Keyword))
     {
         <h3 class="text-primary b-3">
-            Những bài viết chứa từ khoá '@postQuery.KeyWord'
+            Những bài viết chứa từ khoá '@postQuery.Keyword'
         </h3>
     }
     else

@@ -42,7 +42,7 @@ namespace TatBlog.WebApp.Controllers
                 // chỉ lấy những bài viết có trang thái published
                 PublishedOnly = true,
                 //tìm kiếm theo từ khoá 
-                KeyWord = keyword
+                Keyword = keyword
             };
             // truy vấn các bài viết theo điều kiện đã tạo
             var postsList = await _blogRepository.GetPagedPostAsync(
@@ -103,7 +103,7 @@ namespace TatBlog.WebApp.Controllers
         }
 
         // để hiển thị chi tiết một bài viết khi người dùng nhấn vào nút Xem chi tiết
-        public async Task<IActionResult> Post(int year = 2023, int month = 1,int day = 1, string slug = null)
+        public async Task<IActionResult> Post(int year = 2023, int month = 1,int day = 1, string slug = "")
         {
             if (slug == null) return NotFound();
 

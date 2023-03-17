@@ -64,5 +64,17 @@ namespace TatBlog.Services.Blogs
         // Tìm bài viết có tên định danh là 'slug
         // và được đăng vào tháng 'month' năm 'year'
         Task<Post> GetPostAsync(int year, int month, int day, string slug, CancellationToken cancellationToken = default);
+
+
+        // d. Lấy và phân trang danh sách tác giả kèm theo số lượng bài viết của tác giả
+        // đó.Kết quả trả về kiểu IPagedList<AuthorItem>
+        Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default);
+
+        // l. Tìm một bài viết theo mã số. 
+        Task<Post> GetPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default);
+
+        // m. Thêm hay cập nhật một bài viết. 
+        Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
+
     }
 }

@@ -23,10 +23,11 @@
     <div class="text-center my-4">
         @if (Model.HasPreviousPage)
         {
-            <a asp-controller="Blog"
+            <a asp-area =""
+               asp-controller="Blog"
                asp-action="@actionName"
                asp-route-slug="@slug"
-               asp-route-k="@postQuery.KeyWord"
+               asp-route-k="@postQuery.Keyword"
                asp-route-p="@(Model.PageNumber - 1)"
                asp-route-ps="@Model.PageSize"
                class="btn btn-dark">
@@ -44,10 +45,12 @@
         }
         @if (Model.HasNextPage)
         {
-            <a asp-controller="Blog"
+            // thêm  asp-area="" dể nó ko chạy cào admin
+            <a asp-area=""
+               asp-controller="Blog"
                asp-action="@actionName"
                asp-route-slug="@slug"
-               asp-route-k="@postQuery.KeyWord"
+               asp-route-k="@postQuery.Keyword"
                asp-route-p="@(Model.PageNumber + 1)"
                asp-route-ps="@Model.PageSize"
                class="btn btn-dark">
