@@ -116,6 +116,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcmllc1dpZGdldFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/myloc/Desktop/Study/Code_PTUDWNC/2015610-Lab02-Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/Components/OutstandPostWidget/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcT3V0c3RhbmRQb3N0V2lkZ2V0XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/myloc/Desktop/Study/Code_PTUDWNC/2015610-Lab02-Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/Components/RandomPostsWidget/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmFuZG9tUG9zdHNXaWRnZXRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/myloc/Desktop/Study/Code_PTUDWNC/2015610-Lab02-Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/Components/TagsWidget/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGFnc1dpZGdldFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/myloc/Desktop/Study/Code_PTUDWNC/2015610-Lab02-Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -5,10 +5,17 @@
 
     @await Component.InvokeAsync("CategoriesWidget")
 
-    <h3>Bài viết nổi bật </h3>
+  @*  <h3>Bài viết nổi bật </h3>
     <hr />
     <h3>Đăng ký nhận tin mới</h3>
     <hr />
-    <h3> Tag cloud</h3>
+    <h3> Tag cloud</h3>*@
+    @await Component.InvokeAsync("OutstandPostWidget")
+    @await Component.InvokeAsync("RandomPostsWidget")
+
+    <h3 class="text-success mb-2">
+        Đăng ký nhận tin mới
+    </h3>
+    @await Component.InvokeAsync("TagsWidget")
 
 </div>
