@@ -256,6 +256,42 @@ namespace TatBlog.Services.Blogs
             return await postsQuery.FirstOrDefaultAsync(cancellationToken);
         }
 
+        public async Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Post>()
+                .Include(x => x.Author)
+                .Include(x => x.Category)
+                .OrderByDescending(p => p.ViewCount)
+                .Take(numPosts)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<IList<Post>> GetPostsByQualAsync(int num, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Post>()
+                .Include(a => a.Author)
+                .Include(c => c.Category)
+                .OrderBy(x => x.Id)
+                .Take(num)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<IList<TagItem>> GetListTagItemAsync(CancellationToken cancellationToken = default)
+        {
+            IQueryable<Tag> tagItems = _context.Set<Tag>();
+
+            return await tagItems
+                .Select(x => new TagItem()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    UrlSlug = x.UrlSlug,
+                    Description = x.Description,
+                    PostCount = x.Posts.Count(p => p.Published)
+                })
+            .ToListAsync(cancellationToken);
+        }
+     
         public async Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default)
         {
             var tagQuery = _context.Set<Author>()
