@@ -1,9 +1,9 @@
 # PTUD-Web-NC
 
-===========================================Lab01=====================================
+=========================Lab01==========================
 C. Bài tập thực hành
 
-===========================================Lab02=====================================
+=========================Lab02==========================
 C. Bài tập thực hành
 
 1. Hãy thay đổi hoặc bổ sung mã nguồn trong tập tin _PostItem.cshtml để hiển
@@ -29,12 +29,12 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 	trong tháng và năm đã chọn (do người dùng click chuột vào các tháng
 	trong view component Archives ở bài tập 3).
 
-=================================Chưa Hoàn Thành=====================================
+=========================Chưa hoàn thiện==========================
 |
 |	 Contact(): để hiển thị thông tin liên hệ, bản đồ và form để gửi ý kiến.
 |
 |	 About(): để hiển thị trang giới thiệu về blog (nội dung tĩnh).
-=====================================================================================
+==================================================================
 
 3. Tạo các view component và thêm chúng vào sidebar:
 	 FeaturedPosts: Hiển thị TOP 3 bài viết được xem nhiều nhất. Người dùng
@@ -45,7 +45,8 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 
 	 TagCloud: Hiển thị danh sách các thẻ (tag). Khi người dùng click chuột vào
 	thẻ nào thì hiển thị danh sách bài viết chứa thẻ đó.
-=================================Chưa Hoàn Thành=====================================
+
+=========================Chưa hoàn thiện==========================
 |	 BestAuthors: Hiển thị TOP 4 tác giả có nhiều bài viết nhất. Sử dụng view
 |	component này trên trang chủ. Khi người dùng click chuột vào tên tác giả,
 |	hiển thị danh sách bài viết của tác giả đó.
@@ -71,7 +72,7 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 |	(URL) tới action Ubsubscribe để người dùng có thể hủy đăng ký bất cứ lúc
 |	nào.
 |
-|===========================================Lab03======================================
+|==================Lab03===================
 |C. Bài tập thực hành
 |1. Tiếp tục hoàn thiện các chức năng quản lý bài viết.
 |	 Trong phần hướng dẫn, trang hiển thị danh sách bài viết luôn hiển thị 10
@@ -115,4 +116,4 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 |	hiển thị danh sách bài viết (chủ đề, tác giả, …) dưới dạng bảng, hỗ trợ phân
 |	trang, sắp xếp các mẫu tin và tải dữ liệu bằng AJAX.
 |
-=====================================================================================
+==================================================================
