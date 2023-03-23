@@ -188,11 +188,22 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 
         //Hàm xoá
 
-        [HttpPost]
-        public async Task<ActionResult> DeletePost(string id)
-        {
-            await _blogRepository.DeletePostByIdAsync(Convert.ToInt32(id));
+        //[HttpPost]
+        //public async Task<ActionResult> DeletePost(string id)
+        //{
+        //    await _blogRepository.DeletePostByIdAsync(Convert.ToInt32(id));
 
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            var post = await _blogRepository.GetPostByIdAsync(id);
+            if (post.ImageUrl.Length > 0)
+            {
+                await _mediaManager.DeleteFileAsync(post.ImageUrl);
+            }
+            await _blogRepository.DeletePostByIdAsync(post.Id);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -84,7 +84,7 @@ namespace TatBlog.Services.Blogs
         Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
 
         // i. Nút Xoá bài viết ở trang Admin
-        Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default);
+        Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default);
 
         //Tìm Top (N) bài viết được nhiều người xem nhất trong danh sách
         Task<IList<Post>> GetPopularArticleAsync(int numPosts, CancellationToken cancellationToken = default);

@@ -19,11 +19,11 @@
     <table class="table table-responsive table-striped">
         <thead>
             <tr>
-                <th width="60%">Tiêu đề</th>
-                <th width="10%">Tác giả</th>
+                <th width="50%">Tiêu đề</th>
+                <th width="15%">Tác giả</th>
                 <th width="10%">Chủ đề</th>
-                <th width="10%">Xuất bản</th>
-                <th width="10%">Xoá</th>
+                <th width="15%">Xuất bản</th>
+                <th width="10%">Xóa bài</th>
             </tr>
         </thead>
         <tbody>
@@ -66,6 +66,7 @@
                             <button type="button" value="@post.Id" class="btn btn-danger" data-bs-target="#deleteModal" data-bs-toggle="modal">
                                 Xóa
                             </button>
+                        </div>
                     </td>
                 </tr>
             }
@@ -79,7 +80,7 @@ else
     </h1>
 }
 
-<!-- Modal -->
+<!-- Modals -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -98,6 +99,7 @@ else
     </div>
 </div>
 
+
 <form method="post"
       name="delete-post-form"
       enctype="multipart/form-data"
@@ -111,13 +113,11 @@ else
         var postId;
         var deleteForm = document.forms['delete-post-form'];
         var btnDeletePost = document.getElementById('btn-delete-post');
-        // When dialog confirm clicked
         $('#deleteModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             postId = button.val();
         });
 
-        // When delete post btn clicked
         btnDeletePost.onclick = function () {
             deleteForm.action += "/" + postId;
             deleteForm.submit();
