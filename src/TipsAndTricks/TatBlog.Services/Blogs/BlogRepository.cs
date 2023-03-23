@@ -380,16 +380,22 @@ namespace TatBlog.Services.Blogs
             await _context.SaveChangesAsync();
         }
         // xoá  bài viết 
-        public async Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default)
+        //public async Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default)
+        //{
+        //    var post = await _context.Set<Post>().FindAsync(id);
+
+        //    if (post is null) return false;
+
+        //    _context.Set<Post>().Remove(post);
+        //    var rowsCount = await _context.SaveChangesAsync(cancellationToken);
+
+        //    return rowsCount > 0;
+        //}
+
+        public async Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            var post = await _context.Set<Post>().FindAsync(id);
-
-            if (post is null) return false;
-
-            _context.Set<Post>().Remove(post);
-            var rowsCount = await _context.SaveChangesAsync(cancellationToken);
-
-            return rowsCount > 0;
+            return await _context.Set<Post>()
+                .Where(t => t.Id == id).ExecuteDeleteAsync(cancellationToken) > 0;
         }
     }
 
