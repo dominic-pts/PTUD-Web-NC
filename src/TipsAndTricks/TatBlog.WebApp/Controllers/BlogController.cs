@@ -126,19 +126,19 @@ namespace TatBlog.WebApp.Controllers
 
         // hiện thị danh sách bài viết được đăng trong tháng và năm đã chọn(do người
         // dùng click chuột vào các tháng trong view component Archives ở bài tập 3).
-        //public async Task<IActionResult> Archives(int year, int month)
-        //{
-        //    PostQuery query = new PostQuery
-        //    {
-        //        Year = year,
-        //        Month = month
-        //    };
+        public async Task<IActionResult> Archives(int year, int month)
+        {
+            PostQuery query = new PostQuery
+            {
+                Year = year,
+                Month = month
+            };
 
-        //    var posts = await _blogRepository.GetPostByQueryAsync(query);
+            var posts = await _blogRepository.GetPostByQueryAsync(query);
 
-        //    ViewData["PostQuery"] = query;
+            ViewData["PostQuery"] = query;
 
-        //    return View(posts);
-        //}
+            return View(posts);
+        }
     }
 }

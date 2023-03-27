@@ -3,6 +3,10 @@
     ViewData["PageTitle"] = "Trang chủ";
     var postQuery = (ViewBag.PostQuery as PostQuery) ?? new PostQuery();
 }
+
+@*@await Component.InvokeAsync("BestAuthors")*@
+
+
 <div class="p-4">
     @if (!string.IsNullOrWhiteSpace(postQuery.Keyword))
     {
