@@ -196,15 +196,21 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
         //    return RedirectToAction(nameof(Index));
         //}
 
+        //public async Task<IActionResult> DeletePost(int id)
+        //{
+        //    var post = await _blogRepository.GetPostByIdAsync(id);
+        //    if (post.ImageUrl.Length > 0)
+        //    {
+        //        await _mediaManager.DeleteFileAsync(post.ImageUrl);
+        //    }
+        //    await _blogRepository.DeletePostByIdAsync(post.Id);
+        //    return RedirectToAction(nameof(Index));
+        //}
         public async Task<IActionResult> DeletePost(int id)
         {
-            var post = await _blogRepository.GetPostByIdAsync(id);
-            if (post.ImageUrl.Length > 0)
-            {
-                await _mediaManager.DeleteFileAsync(post.ImageUrl);
-            }
-            await _blogRepository.DeletePostByIdAsync(post.Id);
+            await _blogRepository.DeletePostAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

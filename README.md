@@ -29,12 +29,10 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 	trong tháng và năm đã chọn (do người dùng click chuột vào các tháng
 	trong view component Archives ở bài tập 3).
 
-=========================Chưa hoàn thiện==========================
-|
-|	 Contact(): để hiển thị thông tin liên hệ, bản đồ và form để gửi ý kiến.
-|
-|	 About(): để hiển thị trang giới thiệu về blog (nội dung tĩnh).
-==================================================================
+	 Contact(): để hiển thị thông tin liên hệ, bản đồ và form để gửi ý kiến.
+
+	 About(): để hiển thị trang giới thiệu về blog (nội dung tĩnh).
+
 
 3. Tạo các view component và thêm chúng vào sidebar:
 	 FeaturedPosts: Hiển thị TOP 3 bài viết được xem nhiều nhất. Người dùng
@@ -46,22 +44,23 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 	 TagCloud: Hiển thị danh sách các thẻ (tag). Khi người dùng click chuột vào
 	thẻ nào thì hiển thị danh sách bài viết chứa thẻ đó.
 
-=========================Chưa hoàn thiện==========================
-|	 BestAuthors: Hiển thị TOP 4 tác giả có nhiều bài viết nhất. Sử dụng view
-|	component này trên trang chủ. Khi người dùng click chuột vào tên tác giả,
-|	hiển thị danh sách bài viết của tác giả đó.
-|
-|	 Archives: Hiển thị danh sách 12 tháng gần nhất và số lượng bài viết trong
-|	mỗi tháng dưới dạng các liên kết. Khi người dùng click chuột vào tháng nào
-|	thì hiển thị danh sách bài viết được đăng trong tháng đó. Định dạng:
-|	November 2022 (5), February 2023 (11)
-|
-|4. Xây dựng chức năng đăng ký nhận thông báo khi có bài viết mới
-|	 Tạo partial view NewsletterForm cho phép người dùng nhập địa chỉ email
-|	để đăng ký nhận thông báo khi có bài viết mới.
-|
-|	 Tạo controller mới, đặt tên là NewsletterController.
-|
+
+	 BestAuthors: Hiển thị TOP 4 tác giả có nhiều bài viết nhất. Sử dụng view
+	component này trên trang chủ. Khi người dùng click chuột vào tên tác giả,
+	hiển thị danh sách bài viết của tác giả đó.
+
+	 Archives: Hiển thị danh sách 12 tháng gần nhất và số lượng bài viết trong
+	mỗi tháng dưới dạng các liên kết. Khi người dùng click chuột vào tháng nào
+	thì hiển thị danh sách bài viết được đăng trong tháng đó. Định dạng:
+	November 2022 (5), February 2023 (11)
+
+4. Xây dựng chức năng đăng ký nhận thông báo khi có bài viết mới
+	 Tạo partial view NewsletterForm cho phép người dùng nhập địa chỉ email
+	để đăng ký nhận thông báo khi có bài viết mới.
+
+	 Tạo controller mới, đặt tên là NewsletterController.
+
+|=========================Chưa hoàn thiện==========================
 |	 Tạo 2 action Subscribe(string email), Unsubscribe(string email) để
 |	thực hiện việc đăng ký và hủy đăng ký nhận thông báo bài viết mới.
 |
@@ -72,34 +71,36 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 |	(URL) tới action Ubsubscribe để người dùng có thể hủy đăng ký bất cứ lúc
 |	nào.
 |
-|==================Lab03===================
-|C. Bài tập thực hành
-|1. Tiếp tục hoàn thiện các chức năng quản lý bài viết.
-|	 Trong phần hướng dẫn, trang hiển thị danh sách bài viết luôn hiển thị 10
-|	bài viết mới nhất. Hãy cập nhật lại mã nguồn và thêm điều khiển phân
-|	trang để người quản trị có thể tải và xem tất cả các bài viết. (Sinh viên
-|	tham khảo cách xây dựng điều khiển phân trang ở bài Lab trước).
-|
-|	 Hiện tại cột “Xuất bản” hiển thị một trong 2 giá trị: “Có”, “Không”. Hãy cập
-|	nhật lại mã nguồn để hiển thị giá trị này dưới dạng nút bấm. Khi người
-|	dùng click chuột thì đổi trạng thái Xuất bản của bài viết.
-|
-|	 Bổ sung thêm mã lệnh để hiển thị nút xóa trên mỗi dòng ứng với bài viết.
-|	Khi người dùng click chuột vào nút này thì hỏi “Bạn có thực sự muốn xóa
-|	bài viết này không?”. Nếu người dùng trả lời Yes, thực hiện việc xóa bài viết
-|	và tải lại trang.
-|
-|	 Trên khung tìm kiếm, bổ sung thêm điều kiện tìm kiếm “Chưa xuất bản”,
-|	hiển thị dưới dạng checkbox. Khi người dùng đánh dấu chọn checkbox này
-|	và nhấn tìm kiếm thì chỉ hiển thị những bài viết có cờ Published bằng false.
-|
-|	 Trên khung tìm kiếm, thêm nút “Bỏ lọc”. Khi người dùng nhấn vào nút này
-|	thì xóa tất cả các điều kiện tìm kiếm trong các ô nhập và tải lại trang chứa
-|	đầy đủ bài viết.
-|
-|2. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật chủ đề.
-|3. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật tác giả.
-|4. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật thẻ (tag).
+==================Lab03===================
+C. Bài tập thực hành
+1. Tiếp tục hoàn thiện các chức năng quản lý bài viết.
+	 Trong phần hướng dẫn, trang hiển thị danh sách bài viết luôn hiển thị 10
+	bài viết mới nhất. Hãy cập nhật lại mã nguồn và thêm điều khiển phân
+	trang để người quản trị có thể tải và xem tất cả các bài viết. (Sinh viên
+	tham khảo cách xây dựng điều khiển phân trang ở bài Lab trước).
+
+	 Hiện tại cột “Xuất bản” hiển thị một trong 2 giá trị: “Có”, “Không”. Hãy cập
+	nhật lại mã nguồn để hiển thị giá trị này dưới dạng nút bấm. Khi người
+	dùng click chuột thì đổi trạng thái Xuất bản của bài viết.
+
+	 Bổ sung thêm mã lệnh để hiển thị nút xóa trên mỗi dòng ứng với bài viết.
+	Khi người dùng click chuột vào nút này thì hỏi “Bạn có thực sự muốn xóa
+	bài viết này không?”. Nếu người dùng trả lời Yes, thực hiện việc xóa bài viết
+	và tải lại trang.
+
+	 Trên khung tìm kiếm, bổ sung thêm điều kiện tìm kiếm “Chưa xuất bản”,
+	hiển thị dưới dạng checkbox. Khi người dùng đánh dấu chọn checkbox này
+	và nhấn tìm kiếm thì chỉ hiển thị những bài viết có cờ Published bằng false.
+
+	 Trên khung tìm kiếm, thêm nút “Bỏ lọc”. Khi người dùng nhấn vào nút này
+	thì xóa tất cả các điều kiện tìm kiếm trong các ô nhập và tải lại trang chứa
+	đầy đủ bài viết.
+
+2. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật chủ đề.
+3. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật tác giả.
+4. Cài đặt các chức năng xem danh sách, thêm, xóa, cập nhật thẻ (tag).
+
+|=========================Chưa hoàn thiện==========================
 |5. Cài đặt các chức năng xem danh sách, phê duyệt, xóa các bình luận.
 |6. Cài đặt các chức năng xem danh sách, quản lý người đăng ký theo dõi blog.
 |
@@ -116,4 +117,4 @@ thị tiêu đề bài viết, tên tác giả và tên chuyên mục dưới d�
 |	hiển thị danh sách bài viết (chủ đề, tác giả, …) dưới dạng bảng, hỗ trợ phân
 |	trang, sắp xếp các mẫu tin và tải dữ liệu bằng AJAX.
 |
-==================================================================
+|==============================Lab 04================================
