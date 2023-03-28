@@ -131,22 +131,13 @@ namespace TatBlog.Services.Blogs
                 cancellationToken);
         }
 
-        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
-        {
-            return await FilterPosts(query).ToPagedListAsync(
-                                    pageNumber,
-                                    pageSize,
-                                    nameof(Post.PostedDate),
-                                    "DESC",
-                                    cancellationToken);
-        }
+      
+        //public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+        //{
+        //    IQueryable<T> result = mapper(FilterPosts(query));
 
-        public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
-        {
-            IQueryable<T> result = mapper(FilterPosts(query));
-
-            return await result.ToPagedListAsync();
-        }
+        //    return await result.ToPagedListAsync();
+        //}
 
         private IQueryable<Post> FilterPosts(PostQuery condition)
         {
@@ -541,6 +532,31 @@ namespace TatBlog.Services.Blogs
         {
             return await _context.Set<Tag>()
                 .Where(t => t.Id == id).ExecuteDeleteAsync(cancellationToken) > 0;
+        }
+
+
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(query).ToPagedListAsync(
+                                    pageNumber,
+                                    pageSize,
+                                    nameof(Post.PostedDate),
+                                    "DESC",
+                                    cancellationToken);
+        }
+
+        public async Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(query).ToPagedListAsync(
+                                            pagingParams,
+                                            cancellationToken);
+        }
+
+        public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> result = mapper(FilterPosts(query));
+
+            return await result.ToPagedListAsync(pagingParams, cancellationToken);
         }
     }
 
