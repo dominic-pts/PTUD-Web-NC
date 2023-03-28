@@ -53,10 +53,10 @@ namespace TatBlog.Services.Blogs
             int pageNumber,
             int pageSize,
             CancellationToken cancellationToken = default);
-        Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query,
-            int pageNumber = 1, 
-            int pageSize = 10, 
-            CancellationToken cancellationToken = default);
+        //Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query,
+        //    int pageNumber = 1, 
+        //    int pageSize = 10, 
+        //    CancellationToken cancellationToken = default);
 
 
         //Task<IList<TagItem>> GetListTagItemAsync(CancellationToken cancellationToken = default);
@@ -131,6 +131,21 @@ namespace TatBlog.Services.Blogs
 
         //Xóa một thẻ theo mã cho trước
         Task<bool> DeleteTagByIdAsync(int id, CancellationToken cancellationToken = default);
+
+        //lab04
+
+        // s. Tìm và phân trang các bài viết thỏa mãn điều kiện tìm kiếm được cho trong
+        // đối tượng PostQuery(kết quả trả về kiểu IPagedList<Post>)
+        Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default);
+
+        Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default);
+
+        // t.Tương tự câu trên nhưng yêu cầu trả về kiểu IPagedList<T>.Trong đó T
+        // là kiểu dữ liệu của đối tượng mới được tạo từ đối tượng Post.Hàm này có
+        // thêm một đầu vào là Func<IQueryable<Post>, IQueryable<T>> mapper
+        // để ánh xạ các đối tượng Post thành các đối tượng T theo yêu cầu.
+        Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default);
+
     }
 
 }
