@@ -118,3 +118,25 @@ C. Bài tập thực hành
 |	trang, sắp xếp các mẫu tin và tải dữ liệu bằng AJAX.
 |
 |==============================Lab 04================================
+
+1. Xây dựng các API endpoint categories để quản lý thông tin các chuyên mục.
+
+2. Xây dựng các API endpoint posts để quản lý thông tin bài viết.
+
+3. Xây dựng các API endpoint để quản lý thẻ/từ khóa (tag).
+
+4. Xây dựng các API endpoint để quản lý thông tin người theo dõi blog, đăng ký
+và hủy đăng ký theo dõi.
+
+5. Xây dựng các API endpoint để quản lý các bình luận.
+
+6. Xây dựng các API endpoint để xử lý việc nhận các góp ý từ người dùng (nhập
+vào form liên hệ).
+
+7. Xây dựng các API endpoint trả về các chỉ số thống kê: Tổng số bài viết, số bài
+viết chưa xuất bản, số lượng chủ đề, số lượng tác giả, số lượng bình luận đang
+chờ phê duyệt, số lượng người theo dõi, số lượng người mới theo dõi đăng ký
+(lấy số liệu trong ngày).
+
+8. Tìm hiểu cách sử dụng gói thư viện Carter để phân chia API endpoints vào các
+mô-đun và tự động tìm quét các endpoint.

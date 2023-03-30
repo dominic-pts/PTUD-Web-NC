@@ -426,10 +426,10 @@ namespace TatBlog.Services.Blogs
                 categories = categories.Where(x => x.ShowOnMenu);
             }
 
-            if (!string.IsNullOrWhiteSpace(condition.KeyWord))
+            if (!string.IsNullOrWhiteSpace(condition.Keyword))
             {
-                categories = categories.Where(x => x.Name.Contains(condition.KeyWord) ||
-                                         x.Description.Contains(condition.KeyWord));
+                categories = categories.Where(x => x.Name.Contains(condition.Keyword) ||
+                                         x.Description.Contains(condition.Keyword));
             }
             return categories;
         }
@@ -517,10 +517,10 @@ namespace TatBlog.Services.Blogs
 
             if (condition != null)
             {
-                if (!string.IsNullOrWhiteSpace(condition.KeyWord))
+                if (!string.IsNullOrWhiteSpace(condition.Keyword))
                 {
-                    tagItems = tagItems.Where(x => x.Name.Contains(condition.KeyWord) ||
-                                              x.Description.Contains(condition.KeyWord));
+                    tagItems = tagItems.Where(x => x.Name.Contains(condition.Keyword) ||
+                                              x.Description.Contains(condition.Keyword));
                 }
             }
 

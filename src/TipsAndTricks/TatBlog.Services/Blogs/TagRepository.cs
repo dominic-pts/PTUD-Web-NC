@@ -108,11 +108,11 @@ public class TagRepository : ITagRepository
       categoryQuery = categoryQuery.Where(x => x.UrlSlug == query.UrlSlug);
     }
 
-    if (!string.IsNullOrWhiteSpace(query.KeyWord))
+    if (!string.IsNullOrWhiteSpace(query.Keyword))
     {
-      categoryQuery = categoryQuery.Where(x => x.Name.Contains(query.KeyWord) ||
-                   x.Description.Contains(query.KeyWord) ||
-                   x.Posts.Any(p => p.Title.Contains(query.KeyWord)));
+      categoryQuery = categoryQuery.Where(x => x.Name.Contains(query.Keyword) ||
+                   x.Description.Contains(query.Keyword) ||
+                   x.Posts.Any(p => p.Title.Contains(query.Keyword)));
     }
 
     return categoryQuery;
