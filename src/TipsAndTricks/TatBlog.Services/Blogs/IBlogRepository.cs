@@ -78,8 +78,8 @@ namespace TatBlog.Services.Blogs
 
         
         // m. Thêm hay cập nhật một bài viết. 
-        Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
-        
+        //Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
+        Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
         // n. Chuyển đổi trạng thái Published của bài viết. 
         Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
 
@@ -146,6 +146,17 @@ namespace TatBlog.Services.Blogs
         // để ánh xạ các đối tượng Post thành các đối tượng T theo yêu cầu.
         Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default);
 
+
+        // Lấy ngẫu nhiên N bài viết. N là tham số đầu vào. 
+        Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default);
+
+
+        Task<IList<DateItem>> GetArchivesPostAsync(int limit, CancellationToken cancellationToken = default);
+
+
+        Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default);
+
+       
     }
 
 }

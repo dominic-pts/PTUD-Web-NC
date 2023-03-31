@@ -34,8 +34,29 @@ public class AuthorRepository : IAuthorRepository
 				return await GetAuthorByIdAsync(authorId);
 			});
 	}
+    public async Task<IPagedList<Author>> GetAuthorByQueryAsync(AuthorQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
+    {
+        return await FilterAuthors(query).ToPagedListAsync(
+                                pageNumber,
+                                pageSize,
+                                nameof(AuthorQuery.FullName),
+                                "DESC",
+                                cancellationToken);
+    }
 
-	public async Task<Author> GetAuthorBySlugAsync(string slug, CancellationToken cancellationToken)
+    public async Task<IPagedList<Author>> GetAuthorByQueryAsync(AuthorQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default)
+    {
+        return await FilterAuthors(query).ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    public async Task<IPagedList<T>> GetAuthorByQueryAsync<T>(AuthorQuery query, IPagingParams pagingParams, Func<IQueryable<Author>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
+    {
+        IQueryable<T> result = mapper(FilterAuthors(query));
+
+        return await result.ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    public async Task<Author> GetAuthorBySlugAsync(string slug, CancellationToken cancellationToken)
 	{
 		return await _blogContext.Set<Author>()
 								 .Where(a => a.UrlSlug.Equals(slug))
@@ -161,15 +182,7 @@ public class AuthorRepository : IAuthorRepository
 			.AnyAsync(x => x.Id != id && x.UrlSlug == slug, cancellationToken);
 	}
 
-	public async Task<IPagedList<Author>> GetAuthorByQueryAsync(AuthorQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
-	{
-		return await FilterAuthors(query).ToPagedListAsync(
-								pageNumber,
-								pageSize,
-								nameof(AuthorQuery.FullName),
-								"DESC",
-								cancellationToken);
-	}
+	
 
 	private IQueryable<Author> FilterAuthors(AuthorQuery query)
 	{

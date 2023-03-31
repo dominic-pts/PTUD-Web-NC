@@ -28,9 +28,9 @@ public interface IAuthorRepository
 
 	Task<bool> CheckAuthorSlugExisted(int id, string slug, CancellationToken cancellationToken = default);
 
-	Task<IPagedList<Author>> GetAuthorByQueryAsync(AuthorQuery query, int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default);
+    Task<IPagedList<T>> GetAuthorByQueryAsync<T>(AuthorQuery query, IPagingParams pagingParams, Func<IQueryable<Author>, IQueryable<T>> mapper, CancellationToken cancellationToken = default);
 
-	Task<bool> DeleteAuthorByIdAsync(int? id, CancellationToken cancellationToken = default);
+    Task<bool> DeleteAuthorByIdAsync(int? id, CancellationToken cancellationToken = default);
 
 	Task<bool> SetImageUrlAsync(
 		int authorId, string imageUrl,

@@ -1,6 +1,8 @@
 ﻿ using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +17,13 @@ namespace TatBlog.Services.Blogs
     public class BlogRepository : IBlogRepository
     {
         private readonly BlogDbContext _context;
-        public BlogRepository(BlogDbContext context)
+        private readonly ITagRepository _tagRepository;
+        private readonly IMemoryCache _memoryCache;
+        public BlogRepository(BlogDbContext context, IMemoryCache memoryCache, ITagRepository tagRepository)
         {
             _context = context;
+            _memoryCache = memoryCache;
+            _tagRepository = tagRepository;
         }
 
         public async Task<Post> GetPostAsync(int year, int month, string slug, CancellationToken cancellationToken = default)
@@ -131,7 +137,7 @@ namespace TatBlog.Services.Blogs
                 cancellationToken);
         }
 
-      
+
         //public async Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default)
         //{
         //    IQueryable<T> result = mapper(FilterPosts(query));
@@ -282,7 +288,7 @@ namespace TatBlog.Services.Blogs
                 })
             .ToListAsync(cancellationToken);
         }
-     
+
         //public async Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default)
         //{
         //    var tagQuery = _context.Set<Author>()
@@ -316,7 +322,7 @@ namespace TatBlog.Services.Blogs
                                   .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default)
+        public async Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default)
         {
             if (post.Id > 0)
             {
@@ -328,19 +334,19 @@ namespace TatBlog.Services.Blogs
             }
 
             var validTags = tags.Where(x => !string.IsNullOrWhiteSpace(x))
-                .Select(x => new
-                {
-                    Name = x,
-                    Slug = x.GenerateSlug()
-                })
-                .GroupBy(x => x.Slug)
-                .ToDictionary(g => g.Key, g => g.First().Name);
+              .Select(x => new
+              {
+                  Name = x,
+                  Slug = x.GenerateSlug()
+              })
+              .GroupBy(x => x.Slug)
+              .ToDictionary(g => g.Key, g => g.First().Name);
 
             foreach (var kv in validTags)
             {
                 if (post.Tags.Any(x => string.Compare(x.UrlSlug, kv.Key, StringComparison.InvariantCultureIgnoreCase) == 0)) continue;
 
-                var tag = await GetTagBySlugAsync(kv.Key, cancellationToken) ?? new Tag()
+                var tag = await _tagRepository.GetTagBySlugAsync(kv.Key, cancellationToken) ?? new Tag()
                 {
                     Name = kv.Value,
                     Description = kv.Value,
@@ -357,7 +363,8 @@ namespace TatBlog.Services.Blogs
             else
                 _context.Add(post);
 
-            await _context.SaveChangesAsync(cancellationToken);
+            var result = await _context.SaveChangesAsync(cancellationToken);
+            return result > 0;
         }
 
         // chuyển đổi trang thái xuất bản
@@ -558,6 +565,56 @@ namespace TatBlog.Services.Blogs
 
             return await result.ToPagedListAsync(pagingParams, cancellationToken);
         }
+
+        public async Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<Post>().OrderBy(p => Guid.NewGuid()).Take(limit).ToListAsync(cancellationToken);
+        }
+
+        public async Task<IList<DateItem>> GetArchivesPostAsync(int limit, CancellationToken cancellationToken = default)
+        {
+            var lastestMonths = await GetLatestMonthList(limit);
+
+            return await Task.FromResult(_context.Set<Post>().AsEnumerable()
+                                                                .GroupBy(p => new
+                                                                {
+                                                                    p.PostedDate.Month,
+                                                                    p.PostedDate.Year
+                                                                })
+                                                                .Join(lastestMonths, d => d.Key.Month, m => m.Month,
+                                                                (postDate, monthGet) => new DateItem
+                                                                {
+                                                                    Month = postDate.Key.Month,
+                                                                    MonthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(postDate.Key.Month),
+                                                                    Year = postDate.Key.Year,
+                                                                    PostCount = postDate.Count()
+                                                                }).ToList());
+        }
+
+        public async Task<IList<DateItem>> GetLatestMonthList(int limit)
+        {
+            return await Task.FromResult((from r in Enumerable.Range(1, 12) select DateTime.Now.AddMonths(limit - r))
+                                .Select(x => new DateItem
+                                {
+                                    Month = x.Month,
+                                    Year = x.Year
+                                }).ToList());
+        }
+
+        public async Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default)
+        {
+            return await _memoryCache.GetOrCreateAsync(
+                $"post.by-id.{id}-{published}",
+                async (entry) =>
+                {
+                    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                    return await GetPostByIdAsync(id, published, cancellationToken);
+                });
+        }
+
+
+
+       
     }
 
 }
