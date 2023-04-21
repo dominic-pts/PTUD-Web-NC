@@ -368,14 +368,14 @@ namespace TatBlog.Services.Blogs
         }
 
         // chuyển đổi trang thái xuất bản
-        public async Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<bool> ChangePostStatusAsync(int id, CancellationToken cancellationToken = default)
         {
             var post = await _context.Posts.FindAsync(id);
 
             post.Published = !post.Published;
 
             _context.Attach(post).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() > 0;
         }
         // xoá  bài viết 
         //public async Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default)
@@ -566,6 +566,11 @@ namespace TatBlog.Services.Blogs
             return await result.ToPagedListAsync(pagingParams, cancellationToken);
         }
 
+        public async Task<IPagedList<T>> GetPagedPostsByQueryAsync<T>(Func<IQueryable<Post>, IQueryable<T>> mapper, PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default)
+        {
+            return await mapper(FilterPosts(query).AsNoTracking()).ToPagedListAsync(pagingParams, cancellationToken);
+        }
+
         public async Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default)
         {
             return await _context.Set<Post>().OrderBy(p => Guid.NewGuid()).Take(limit).ToListAsync(cancellationToken);
@@ -612,9 +617,33 @@ namespace TatBlog.Services.Blogs
                 });
         }
 
+        public async Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default)
+        {
+            var post = await _context.Set<Post>().FindAsync(id);
+
+            if (post is null) return false;
+
+            _context.Set<Post>().Remove(post);
+            var rowsCount = await _context.SaveChangesAsync(cancellationToken);
+
+            return rowsCount > 0;
+        }
 
 
-       
+        public async Task<IList<Post>> GetRandomsPostsAsync(int num, CancellationToken cancellationToken = default)
+        {
+            // OrderBy theo Guid random để xáo trộn List trả về
+            return await _context.Set<Post>()
+                .Include(a => a.Author)
+                .Include(c => c.Category)
+                .OrderBy(x => Guid.NewGuid())
+                .Where(p => p.Published)
+                .Take(num)
+                .ToListAsync(cancellationToken);
+        }
+
+      
+
     }
 
 }

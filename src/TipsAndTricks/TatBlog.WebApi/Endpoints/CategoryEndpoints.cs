@@ -2,10 +2,12 @@
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using TatBlog.Core.Collections;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Extensions;
 using TatBlog.WebApi.Filters;
 using TatBlog.WebApi.Models;
 
@@ -17,39 +19,35 @@ public static class CategoryEndpoints
 	{
 		var routeGroupBuilder = app.MapGroup("/api/categories");
 
+		// Nested Map with defined specific route
 		routeGroupBuilder.MapGet("/", GetCategories)
 						 .WithName("GetCategories")
-						 .Produces<PaginationResult<CategoryItem>>();
+						 .Produces<ApiResponse<PaginationResult<CategoryItem>>>();
 
 		routeGroupBuilder.MapGet("/{id:int}", GetCategoryDetails)
 						 .WithName("GetCategoryById")
-						 .Produces<CategoryItem>()
-						 .Produces(404);
+						 .Produces<ApiResponse<CategoryItem>>();
 
 		routeGroupBuilder.MapGet("/{slug::regex(^[a-z0-9_-]+$)}/posts", GetPostByCategorySlug)
 						 .WithName("GetPostByCategorySlug")
-						 .Produces<PaginationResult<PostDto>>();
+						 .Produces<ApiResponse<PaginationResult<PostDto>>>();
 
 		routeGroupBuilder.MapPost("/", AddCategory)
 						 .WithName("AddNewCategory")
-						 .AddEndpointFilter<ValidatorFilter<CategoryEditModel>>()
-						 .Produces(201)
-						 .Produces(400)
-						 .Produces(409);
-
-		routeGroupBuilder.MapPut("/{id:int}", UpdateCategory)
-						 .WithName("UpdateCategory")
-						 .AddEndpointFilter<ValidatorFilter<CategoryEditModel>>()
-						 .Produces(204)
-						 .Produces(400)
-						 .Produces(409);
+						 .Accepts<CategoryEditModel>("multipart/form-data")
+                         //.AddEndpointFilter<ValidatorFilter<CategoryEditModel>>()
+                         .Produces<ApiResponse<CategoryItem>>();
 
 		routeGroupBuilder.MapDelete("/{id:int}", DeleteCategory)
 						 .WithName("DeleteCategory")
-						 .Produces(204)
-						 .Produces(404);
+						 .Produces<ApiResponse<string>>();
 
-		return app;
+        routeGroupBuilder.MapPost("/show/switch/{id:int}", SwitchShowOn)
+						 .WithName("SwitchShowOn")
+						 .Produces(401)
+						 .Produces<ApiResponse<string>>();
+
+        return app;
 	}
 
 	private static async Task<IResult> GetCategories([AsParameters] CategoryFilterModel model, ICategoryRepository categoryRepository, IMapper mapper)
@@ -59,14 +57,14 @@ public static class CategoryEndpoints
 
 		var paginationResult = new PaginationResult<CategoryItem>(categoryList);
 
-		return Results.Ok(paginationResult);
+		return Results.Ok(ApiResponse.Success(paginationResult));
 	}
 
 	private static async Task<IResult> GetCategoryDetails(int id, ICategoryRepository categoryRepository, IMapper mapper)
 	{
 		var category = await categoryRepository.GetCachedCategoryByIdAsync(id);
 
-		return category == null ? Results.NotFound($"Không tìm thấy chuyên mục có mã số {id}") : Results.Ok(mapper.Map<CategoryItem>(category));
+		return category == null ? Results.Ok(ApiResponse.Fail(HttpStatusCode.NotFound, $"Không tìm thấy chuyên mục có mã số {id}")) : Results.Ok(ApiResponse.Success(mapper.Map<CategoryItem>(category)));
 	}
 
 	private static async Task<IResult> GetPostByCategoryId(int id, [AsParameters] PagingModel pagingModel, IBlogRepository blogRepository)
@@ -81,7 +79,7 @@ public static class CategoryEndpoints
 
 		var paginationResult = new PaginationResult<PostDto>(postsList);
 
-		return Results.Ok(paginationResult);
+		return Results.Ok(ApiResponse.Success(paginationResult));
 	}
 
 	private static async Task<IResult> GetPostByCategorySlug([FromRoute] string slug, [AsParameters] PagingModel pagingModel, IBlogRepository blogRepository)
@@ -95,37 +93,41 @@ public static class CategoryEndpoints
 
 		var paginationResult = new PaginationResult<PostDto>(postsList);
 
-		return Results.Ok(paginationResult);
+		return Results.Ok(ApiResponse.Success(paginationResult));
 	}
 
-	private static async Task<IResult> AddCategory(CategoryEditModel model, ICategoryRepository categoryRepository, IMapper mapper)
-	{
-		if (await categoryRepository.CheckCategorySlugExisted(0, model.UrlSlug))
+	private static async Task<IResult> AddCategory(HttpContext context, ICategoryRepository categoryRepository, IMapper mapper)
+    {
+        var model = await CategoryEditModel.BindAsync(context);
+        var slug = model.Name.GenerateSlug();
+
+        if (await categoryRepository.CheckCategorySlugExisted(model.Id, slug))
 		{
-			return Results.Conflict($"Slug '{model.UrlSlug}' đã được sử dụng");
+			return Results.Conflict($"Slug '{slug}' đã được sử dụng");
 		}
 
-		var category = mapper.Map<Category>(model);
-		await categoryRepository.AddOrUpdateCategoryAsync(category);
+        var category = model.Id > 0 ? await categoryRepository.GetCategoryByIdAsync(model.Id) : null;
+        if (category == null)
+        {
+            category = new Category();
+        }
+        category.Name = model.Name;
+        category.Description = model.Description;
+        category.ShowOnMenu = model.ShowOnMenu;
+        category.UrlSlug = slug;
 
-		return Results.CreatedAtRoute("GetCategoryById", new { category.Id }, mapper.Map<CategoryItem>(category));
-	}
+        await categoryRepository.AddOrUpdateCategoryAsync(category);
 
-	private static async Task<IResult> UpdateCategory(int id, CategoryEditModel model, ICategoryRepository categoryRepository, IMapper mapper)
-	{
-		if (await categoryRepository.CheckCategorySlugExisted(id, model.UrlSlug))
-		{
-			return Results.Conflict($"Slug '{model.UrlSlug}' đã được sử dụng");
-		}
-
-		var category = mapper.Map<Category>(model);
-		category.Id = id;
-
-		return await categoryRepository.AddOrUpdateCategoryAsync(category) ? Results.NoContent() : Results.NotFound();
-	}
+        return Results.Ok(ApiResponse.Success(mapper.Map<CategoryItem>(category), HttpStatusCode.Created));
+    }
 
 	private static async Task<IResult> DeleteCategory(int id, ICategoryRepository categoryRepository)
-	{
-		return await categoryRepository.DeleteCategoryByIdAsync(id) ? Results.NoContent() : Results.NotFound($"Could not find category with id = {id}");
-	}
+    {
+        return await categoryRepository.DeleteCategoryByIdAsync(id) ? Results.Ok(ApiResponse.Success("Category is deleted", HttpStatusCode.NoContent)) : Results.Ok(ApiResponse.Fail(HttpStatusCode.NotFound, $"Could not find category with id = {id}"));
+    }
+
+    private static async Task<IResult> SwitchShowOn(int id, ICategoryRepository categoryRepository)
+    {
+        return await categoryRepository.ChangeCategoryStatusAsync(id) ? Results.Ok(ApiResponse.Success("Category is switched show", HttpStatusCode.NoContent)) : Results.Ok(ApiResponse.Fail(HttpStatusCode.NotFound, $"Could not find category with id = {id}"));
+    }
 }

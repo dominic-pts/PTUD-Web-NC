@@ -20,5 +20,11 @@ public class MapsterConfiguration : IRegister
 
 		config.NewConfig<Post, PostDto>();
 		config.NewConfig<Post, PostDetail>();
-	}
+		config.NewConfig<PostFilterModel, PostQuery>();
+		config.NewConfig<PostFilterModel, CategoryQuery>();
+		config.NewConfig<Post, PostItem>()
+			  .Map(dest => dest.AuthorName, src => src.Author.FullName)
+			  .Map(dest => dest.CategoryName, src => src.Category.Name)
+              .Map(dest => dest.Tags, src => src.Tags.Select(t => t.Name));
+    }
 }

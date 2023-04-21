@@ -133,14 +133,15 @@ public class CategoryRepository : ICategoryRepository
 		return await _blogContext.Set<Category>().AnyAsync(x => x.Id != id && x.UrlSlug == slug, cancellationToken);
 	}
 
-	public async Task ChangeCategoryStatusAsync(int id, CancellationToken cancellationToken = default)
-	{
-		await _blogContext.Set<Category>()
-						  .Where(x => x.Id == id)
-						  .ExecuteUpdateAsync(c => c.SetProperty(x => x.ShowOnMenu, x => !x.ShowOnMenu), cancellationToken);
-	}
+    public async Task<bool> ChangeCategoryStatusAsync(int id, CancellationToken cancellationToken = default)
+    {
+        return await _blogContext.Set<Category>()
+                                 .Where(x => x.Id == id)
+                                 .ExecuteUpdateAsync(c => c.SetProperty(x => x.ShowOnMenu, x => !x.ShowOnMenu), cancellationToken) > 0;
+    }
 
-	private IQueryable<Category> FilterCategories(CategoryQuery query)
+
+    private IQueryable<Category> FilterCategories(CategoryQuery query)
 	{
 		IQueryable<Category> categoryQuery = _blogContext.Set<Category>()
 														 .Include(c => c.Posts);
