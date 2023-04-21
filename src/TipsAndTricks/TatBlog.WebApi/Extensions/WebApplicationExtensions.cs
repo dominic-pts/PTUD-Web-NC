@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NLog.Web;
+using System.Text.Json.Serialization;
 using TatBlog.Data.Contexts;
 using TatBlog.Services.Blogs;
 using TatBlog.Services.Media;
@@ -7,70 +7,74 @@ using TatBlog.Services.Timing;
 
 namespace TatBlog.WebApi.Extensions
 {
-	public static class WebApplicationExtensions
-	{
-		public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
-		{
-			builder.Services.AddMemoryCache();
+    public static class WebApplicationExtensions
+    {
+        public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddOptions();
 
-			builder.Services.AddDbContext<BlogDbContext>(options =>
-			{
-				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-			});
+            builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
-			builder.Services.AddScoped<ITimeProvider, LocalTimeProvider>();
-			builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
-			builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-			builder.Services.AddScoped<ITagRepository, TagRepository>();
-			builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+            builder.Services.AddMemoryCache();
 
-			return builder;
-		}
+            builder.Services.AddDbContext<BlogDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
-		public static WebApplicationBuilder ConfigureCors(this WebApplicationBuilder builder)
-		{
-			builder.Services.AddCors(options =>
-			{
-				options.AddPolicy("TatBlogApp", policyBuilder => policyBuilder.AllowAnyOrigin()
-																			  .AllowAnyHeader()
-																			  .AllowAnyMethod());
-			});
+            builder.Services.AddTransient<SendMailService>();
+            builder.Services.AddScoped<ITimeProvider, LocalTimeProvider>();
+            builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
+            builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+            builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+            builder.Services.AddScoped<ISubscriberRepository, SubscriberRepository>();
+            builder.Services.AddScoped<ITagRepository, TagRepository>();
+            builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
-			return builder;
-		}
-		//cấu hình vc sử dụng NLog
-		public static WebApplicationBuilder ConfigureNLog(
-			this WebApplicationBuilder builder)
-		{
-			builder.Logging.ClearProviders();
-			builder.Host.UseNLog();
+            builder.Logging.ClearProviders();
 
-			return builder;
-		}
-       
+            return builder;
+        }
+
+        public static WebApplicationBuilder ConfigureCors(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("TatBlogApp", policyBuilder => policyBuilder.AllowAnyOrigin()
+                                                                              .AllowAnyHeader()
+                                                                              .AllowAnyMethod());
+            });
+
+            return builder;
+        }
 
         public static WebApplicationBuilder ConfigureSwaggerOpenApi(this WebApplicationBuilder builder)
-		{
-			builder.Services.AddEndpointsApiExplorer();
-			builder.Services.AddSwaggerGen();
+        {
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
-			return builder;
-		}
+            builder.Services.AddControllersWithViews()
+                            .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-		public static WebApplication SetupRequestPipeLine(this WebApplication app)
-		{
-			if (app.Environment.IsDevelopment())
-			{
-				app.UseSwagger();
-				app.UseSwaggerUI();
-			}
+            return builder;
+        }
 
-			app.UseStaticFiles();
-			app.UseHttpsRedirection();
+        public static WebApplication SetupRequestPipeLine(this WebApplication app)
+        {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
-			app.UseCors("TatBlogApp");
+            app.UseStaticFiles();
+            app.UseHttpsRedirection();
 
-			return app;
-		}
-	}
+            app.UseCors("TatBlogApp");
+
+            return app;
+        }
+    }
 }

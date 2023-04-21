@@ -53,14 +53,7 @@ namespace TatBlog.Services.Blogs
             int pageNumber,
             int pageSize,
             CancellationToken cancellationToken = default);
-        //Task<IPagedList<Post>> GetPostByQueryAsync(PostQuery query,
-        //    int pageNumber = 1, 
-        //    int pageSize = 10, 
-        //    CancellationToken cancellationToken = default);
-
-
-        //Task<IList<TagItem>> GetListTagItemAsync(CancellationToken cancellationToken = default);
-
+    
         // Tìm một thẻ (Tag) theo tên định danh (slug) 
         Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
 
@@ -78,13 +71,11 @@ namespace TatBlog.Services.Blogs
 
         
         // m. Thêm hay cập nhật một bài viết. 
-        Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
-        
-        // n. Chuyển đổi trạng thái Published của bài viết. 
-        Task ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
+        //Task AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
+        Task<bool> AddOrUpdatePostAsync(Post post, IEnumerable<string> tags, CancellationToken cancellationToken = default);
 
-        // i. Nút Xoá bài viết ở trang Admin
-        //Task<bool> DeletePostByIdAsync(int id, CancellationToken cancellationToken = default);
+        // n. Chuyển đổi trạng thái Published của bài viết. 
+        Task<bool> ChangePostStatusAsync(int id, CancellationToken cancellationToken = default);
 
         Task<bool> DeletePostAsync(int postId, CancellationToken cancellationToken = default);
 
@@ -145,6 +136,21 @@ namespace TatBlog.Services.Blogs
         // thêm một đầu vào là Func<IQueryable<Post>, IQueryable<T>> mapper
         // để ánh xạ các đối tượng Post thành các đối tượng T theo yêu cầu.
         Task<IPagedList<T>> GetPostByQueryAsync<T>(PostQuery query, IPagingParams pagingParams, Func<IQueryable<Post>, IQueryable<T>> mapper, CancellationToken cancellationToken = default);
+
+
+        // Lấy ngẫu nhiên N bài viết. N là tham số đầu vào. 
+        Task<IList<Post>> GetRandomPostAsync(int limit, CancellationToken cancellationToken = default);
+
+
+        Task<IList<DateItem>> GetArchivesPostAsync(int limit, CancellationToken cancellationToken = default);
+
+
+        Task<Post> GetCachedPostByIdAsync(int id, bool published = false, CancellationToken cancellationToken = default);
+
+        Task<IPagedList<T>> GetPagedPostsByQueryAsync<T>(Func<IQueryable<Post>, IQueryable<T>> mapper, PostQuery query, IPagingParams pagingParams, CancellationToken cancellationToken = default);
+
+        Task<bool> DeletePostByIdAsync(int? id, CancellationToken cancellationToken = default);
+
 
     }
 
